@@ -21,12 +21,13 @@ import org.springframework.web.bind.annotation.RestController;
 
 import javax.annotation.Resource;
 
+import java.io.IOException;
 import java.util.Date;
 import java.util.List;
 
 /**
-* Created by CodeGenerator on 2020/07/19.
-*/
+ * Created by CodeGenerator on 2020/07/19.
+ */
 @RestController
 @RequestMapping("/ex/result")
 public class ExResultController {
@@ -41,8 +42,8 @@ public class ExResultController {
 
     // @PostMapping(value = "/add", produces = MediaType.APPLICATION_JSON_VALUE)
     // public Result add(@RequestBody ExResult exResult) {
-    //     exResultService.save(exResult);
-    //     return ResultGenerator.genSuccessResult();
+    // exResultService.save(exResult);
+    // return ResultGenerator.genSuccessResult();
     // }
 
     // @PostMapping(value = "/add", produces = MediaType.APPLICATION_JSON_VALUE)
@@ -94,4 +95,21 @@ public class ExResultController {
         final PageInfo pageInfo = new PageInfo(list);
         return ResultGenerator.genSuccessResult(pageInfo);
     }
+
+    // public static void main(String[] args) {
+    //     AsyncHttpClient client = new DefaultAsyncHttpClient();
+    //     client.preparePost("http://localhost:8080/ex/result/add/result").setHeader("user-agent", "vscode-restclient")
+    //             .setHeader("content-type", "application/xml")
+    //             .setBody(
+    //                     "<exResult><task_id>3</task_id><resource_id>002</resource_id><ex_total>12</ex_total><suc_cnt>11</suc_cnt><ex_state>0</ex_state></exResult>")
+    //             .execute().toCompletableFuture().thenAccept(System.out::println).join();
+
+    //     try {
+    //         client.close();
+    //     } catch (IOException e) {
+    //         // TODO Auto-generated catch block
+    //         e.printStackTrace();
+    //     }
+
+    // }
 }
