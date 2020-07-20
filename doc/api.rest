@@ -1,0 +1,57 @@
+@hostname = localhost
+@port = 8080
+@baseUrl = {{hostname}}:{{port}}
+@contentType = application/xml
+@createdAt = {{$datetime iso8601}}
+
+###
+
+POST http://{{baseUrl}}/ex/result/add/result HTTP/1.1
+Content-Type: {{contentType}}
+
+<exResult>
+    <task_id>3</task_id>
+    <resource_id>002</resource_id>
+    <ex_total>12</ex_total>
+    <suc_cnt>11</suc_cnt>
+    <ex_state>0</ex_state>
+</exResult>
+
+###
+
+POST http://{{baseUrl}}/ex/result/add/task HTTP/1.1
+Content-Type: {{contentType}}
+
+<exTask>
+    <resource_id>005</resource_id>
+    <task_name>交换数据任务</task_name>
+    <task_type>1</task_type>
+    <ex_results>
+        <exResult>
+            <task_id>2</task_id>
+            <resource_id>005</resource_id>
+            <ex_total>23</ex_total>
+            <suc_cnt>11</suc_cnt>
+            <ex_state>0</ex_state>
+        </exResult>
+        <exResult>
+            <task_id>2</task_id>
+            <resource_id>005</resource_id>
+            <ex_total>20</ex_total>
+            <suc_cnt>11</suc_cnt>
+            <ex_state>0</ex_state>
+        </exResult>
+    </ex_results>
+</exTask>
+
+### 
+POST http://{{baseUrl}}/ex/result/add/test HTTP/1.1
+Content-Type: {{contentType}}
+
+<exResult>
+    <name>Yang</name>
+    <age>23</age>
+    <tes_name>ogp</tes_name>
+</exResult>
+
+###

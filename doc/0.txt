@@ -1,0 +1,94 @@
+@hostname = localhost
+@port = 8080
+@baseUrl = {{hostname}}:{{port}}
+@contentType = application/json
+@createdAt = {{$datetime iso8601}}
+
+###
+
+POST http://{{baseUrl}}/ex/result/add HTTP/1.1
+Content-Type: {{contentType}}
+
+{
+    "taskid": "2",
+    "resourceid": "002",
+    "extotal": "12",
+    "succnt": "10",
+    "exstate": "1"
+}
+
+
+
+@hostname = localhost
+@port = 8080
+@baseUrl = {{hostname}}:{{port}}
+@contentType = application/xml
+@createdAt = {{$datetime iso8601}}
+
+###
+
+POST http://{{baseUrl}}/ex/result/add HTTP/1.1
+Content-Type: {{contentType}}
+
+
+<?xml version="1.0" encoding="utf-8"?>
+<xml>
+  <ex_result>
+    <task_id>2</task_id>
+    <resource_id>002</resource_id>
+    <ex_total>12</ex_total>
+    <suc_cnt>11</suc_cnt>
+    <ex_state>0</ex_state>
+  </ex_result>
+</xml>
+
+
+<ex_result>
+    <taskId>2</taskId>
+    <resourceId>002</resourceId>
+    <exTotal>12</exTotal>
+    <sucCnt>11</sucCnt>
+    <exState>0</exState>
+</ex_result>
+
+
+<exTask>
+    <id>7</id>
+    <resource_id>003</resource_id>
+    <task_name>交换数据任务</task_name>
+    <task_type>1</task_type>
+    <ex_results>
+        <exResult>
+            <id></id>
+            <task_id>7</task_id>
+            <resource_id>003</resource_id>
+            <ex_total>23</ex_total>
+            <suc_cnt>11</suc_cnt>
+            <ex_state>0</ex_state>
+        </exResult>
+        <exResult>
+            <id></id>
+            <task_id>7</task_id>
+            <resource_id>003</resource_id>
+            <ex_total>20</ex_total>
+            <suc_cnt>11</suc_cnt>
+            <ex_state>0</ex_state>
+        </exResult>
+    </ex_results>
+</exTask>
+
+
+
+rest client api
+https://www.cnblogs.com/witpool/p/10049892.html
+
+
+reference: 
+https://blog.csdn.net/weixin_42388901/article/details/92779590?utm_medium=distribute.pc_relevant.none-task-blog-BlogCommendFromMachineLearnPai2-1.edu_weight&depth_1-utm_source=distribute.pc_relevant.none-task-blog-BlogCommendFromMachineLearnPai2-1.edu_weight
+
+https://blog.csdn.net/ywj776199845/article/details/83901950?utm_medium=distribute.pc_relevant_t0.none-task-blog-BlogCommendFromMachineLearnPai2-1.edu_weight&depth_1-utm_source=distribute.pc_relevant_t0.none-task-blog-BlogCommendFromMachineLearnPai2-1.edu_weight
+
+https://www.codetd.com/article/689181
+
+https://www.jianshu.com/p/4bd355715419
+

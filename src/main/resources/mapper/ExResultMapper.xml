@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.company.project.dao.ExResultMapper">
+  <resultMap id="BaseResultMap" type="com.company.project.model.ExResult">
+    <!--
+      WARNING - @mbg.generated
+    -->
+    <id column="taskID" jdbcType="VARCHAR" property="taskid" />
+    <result column="resourceID" jdbcType="VARCHAR" property="resourceid" />
+    <result column="exTotal" jdbcType="CHAR" property="extotal" />
+    <result column="sucCnt" jdbcType="INTEGER" property="succnt" />
+    <result column="exState" jdbcType="LONGVARCHAR" property="exstate" />
+  </resultMap>
+</mapper>
