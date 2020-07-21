@@ -92,3 +92,16 @@ https://www.codetd.com/article/689181
 
 https://www.jianshu.com/p/4bd355715419
 
+
+https://github.com/AsyncHttpClient/async-http-client
+https://github.com/zhaoligang594/httpClientUtils
+https://github.com/search?l=Java&q=HttpClient+%E8%BF%9E%E6%8E%A5%E6%B1%A0&type=Repositories
+https://www.cnblogs.com/fonxian/p/10902172.html
+https://www.cnblogs.com/xufengyuan/p/5823844.html
+https://www.baidu.com/s?ie=utf-8&f=8&rsv_bp=1&tn=baidu&wd=asynchttpclient%20post%E5%8F%91%E9%80%81xml&oq=asynchttpclient%2520post&rsv_pq=d2ca555500714025&rsv_t=bf550nXKa277BSCevvA4lRU5fjliLE8QQkWTi3BQpcaweTxJZx5VZmH0Jkc&rqlang=cn&rsv_enter=1&rsv_dl=tb&rsv_btype=t&inputT=6391&rsv_sug3=26&rsv_sug2=0&rsv_sug4=7904
+https://github.com/square/okhttp
+https://github.com/sendgrid/java-http-client
+https://blog.csdn.net/weixin_34092455/article/details/88686290
+https://blog.csdn.net/qq_36210329/article/details/85111508
+https://www.baidu.com/s?ie=utf-8&f=8&rsv_bp=1&tn=baidu&wd=spring%20boot%20RESTEasy%20%E6%8E%A5%E6%94%B6xml&oq=spring%2520boot%2520R%2526gt%253BST%2526gt%253Basy%2520%25E6%258E%25A5%25E6%2594%25B6xml&rsv_pq=b41758f40001e2db&rsv_t=eb17rHAwouNIXA0sxBoiHiqvq6wrUo0jYbiOy1VJukZzL%2BRraQ%2BxI7nIFnY&rqlang=cn&rsv_enter=0&rsv_dl=tb&rsv_btype=t
+

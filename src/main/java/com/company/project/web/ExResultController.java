@@ -1,5 +1,6 @@
 package com.company.project.web;
 
+import com.alibaba.fastjson.JSON;
 import com.company.project.core.Result;
 import com.company.project.core.ResultGenerator;
 import com.company.project.model.ExResult;
@@ -12,6 +13,7 @@ import com.github.pagehelper.PageHelper;
 import com.github.pagehelper.PageInfo;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.mongodb.core.MongoTemplate;
 import org.springframework.http.MediaType;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
@@ -40,6 +42,9 @@ public class ExResultController {
     @Resource
     TTestService tTestService;
 
+    @Resource
+    MongoTemplate mongoTemplate;
+    
     // @PostMapping(value = "/add", produces = MediaType.APPLICATION_JSON_VALUE)
     // public Result add(@RequestBody ExResult exResult) {
     // exResultService.save(exResult);
@@ -66,6 +71,12 @@ public class ExResultController {
     public Result addTest(@RequestBody final TTest tTest) {
         tTest.setCrateTime(new Date());
         tTestService.save(tTest);
+        return ResultGenerator.genSuccessResult();
+    }
+
+    @PostMapping(value = "/test/mongo", consumes = MediaType.APPLICATION_JSON_VALUE, produces = MediaType.APPLICATION_JSON_VALUE)
+    public Result testMongo(@RequestBody String info) {
+        mongoTemplate.insert(info, "drgsTitle");
         return ResultGenerator.genSuccessResult();
     }
 
