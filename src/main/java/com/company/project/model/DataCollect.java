@@ -2,7 +2,7 @@ package com.company.project.model;
 
 import java.util.Date;
 
-public class datacollect {
+public class DataCollect {
 
       private String ybbm; 
       private String babm;

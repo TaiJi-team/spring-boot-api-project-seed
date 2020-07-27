@@ -3,6 +3,8 @@ package com.company.project.model;
 import java.io.Serializable;
 import java.util.List;
 
+import javax.persistence.Transient;
+
 public class PageResult<T> implements Serializable {
     private static final long serialVersionUID = 1L;
 
@@ -17,15 +19,15 @@ public class PageResult<T> implements Serializable {
         return totalPage;
     }
 
-    public void setTotalPage(long totalPage) {
+    public void setTotalPage(final long totalPage) {
         this.totalPage = totalPage;
     }
 
-	public int getPageNo() {
+    public int getPageNo() {
         return pageNo;
     }
 
-    public void setPageNo(int pageNo) {
+    public void setPageNo(final int pageNo) {
         this.pageNo = pageNo;
     }
 
@@ -33,7 +35,7 @@ public class PageResult<T> implements Serializable {
         return pageSize;
     }
 
-    public void setPageSize(int pageSize) {
+    public void setPageSize(final int pageSize) {
         this.pageSize = pageSize;
     }
 
@@ -41,16 +43,16 @@ public class PageResult<T> implements Serializable {
         return totalCount;
     }
 
-    public void setTotalCount(long totalCount) {
+    public void setTotalCount(final long totalCount) {
         this.totalPage = totalCount / this.pageSize + 1;
         this.totalCount = totalCount;
     }
 
-	public List<T> getResult() {
+    public List<T> getResult() {
         return result;
     }
 
-    public void setResult(List<T> result) {
+    public void setResult(final List<T> result) {
         this.result = result;
     }
 
