@@ -41,8 +41,8 @@ public class DataCollectServiceImpl implements DataCollectService {
         final String pageSize = StringUtils.defaultIfEmpty(jsonObject.getString("pageSize"), "10");
         addCriterias(criteria, jsonObject);
         final long totalCount = mongoTemplate.count(query, DataCollect.class);
-        query.skip(((jsonObject.getInteger("pageNo")) - 1) * jsonObject.getInteger("pageSize"));
-        query.limit(jsonObject.getInteger("pageSize"));
+        query.skip((Integer.parseInt(pageNo) - 1) * Integer.parseInt(pageSize));
+        query.limit(Integer.parseInt(pageSize));
         final List<DataCollect> list = mongoTemplate.find(query, DataCollect.class);
         result.setResult(list);
         result.setPageNo(Integer.parseInt(pageNo));
@@ -65,6 +65,8 @@ public class DataCollectServiceImpl implements DataCollectService {
     private void addCriteria(Criteria criteria, JSONObject jsonObject, String field) {
         if(StringUtils.isNotEmpty(jsonObject.getString(field))){
             criteria.and(field).is(jsonObject.get(field));
+        }else{
+            return;
         }
     }
 }

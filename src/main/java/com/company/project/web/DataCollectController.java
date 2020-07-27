@@ -40,8 +40,10 @@ public class DataCollectController {
      * @return
      * @throws Exception
      */
-    @GetMapping("/dataselect")
+    @PostMapping("/dataselect")
     public PageResult<DataCollect> getList(@RequestBody String queryParam) throws Exception {
+
+        System.out.println(queryParam);
         return dataCollectService.queryData(queryParam);
     }
     
