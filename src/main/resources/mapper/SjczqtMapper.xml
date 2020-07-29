@@ -1,0 +1,376 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.fc.test.mapper.auto.SjczqtMapper">
+  <resultMap id="BaseResultMap" type="com.fc.test.model.auto.Sjczqt">
+    <result column="id" jdbcType="BIGINT" property="id" />
+    <result column="ybbm" jdbcType="VARCHAR" property="ybbm" />
+    <result column="babm" jdbcType="VARCHAR" property="babm" />
+    <result column="czmc" jdbcType="VARCHAR" property="czmc" />
+    <result column="ssczdm" jdbcType="VARCHAR" property="ssczdm" />
+    <result column="czrq" jdbcType="TIMESTAMP" property="czrq" />
+    <result column="mzfs" jdbcType="INTEGER" property="mzfs" />
+    <result column="ssysxm" jdbcType="VARCHAR" property="ssysxm" />
+    <result column="ssysdm" jdbcType="VARCHAR" property="ssysdm" />
+    <result column="mzysxm" jdbcType="VARCHAR" property="mzysxm" />
+    <result column="mzysdm" jdbcType="VARCHAR" property="mzysdm" />
+  </resultMap>
+  <sql id="Example_Where_Clause">
+    <where>
+      <foreach collection="oredCriteria" item="criteria" separator="or">
+        <if test="criteria.valid">
+          <trim prefix="(" prefixOverrides="and" suffix=")">
+            <foreach collection="criteria.criteria" item="criterion">
+              <choose>
+                <when test="criterion.noValue">
+                  and ${criterion.condition}
+                </when>
+                <when test="criterion.singleValue">
+                  and ${criterion.condition} #{criterion.value}
+                </when>
+                <when test="criterion.betweenValue">
+                  and ${criterion.condition} #{criterion.value} and #{criterion.secondValue}
+                </when>
+                <when test="criterion.listValue">
+                  and ${criterion.condition}
+                  <foreach close=")" collection="criterion.value" item="listItem" open="(" separator=",">
+                    #{listItem}
+                  </foreach>
+                </when>
+              </choose>
+            </foreach>
+          </trim>
+        </if>
+      </foreach>
+    </where>
+  </sql>
+  <sql id="Update_By_Example_Where_Clause">
+    <where>
+      <foreach collection="example.oredCriteria" item="criteria" separator="or">
+        <if test="criteria.valid">
+          <trim prefix="(" prefixOverrides="and" suffix=")">
+            <foreach collection="criteria.criteria" item="criterion">
+              <choose>
+                <when test="criterion.noValue">
+                  and ${criterion.condition}
+                </when>
+                <when test="criterion.singleValue">
+                  and ${criterion.condition} #{criterion.value}
+                </when>
+                <when test="criterion.betweenValue">
+                  and ${criterion.condition} #{criterion.value} and #{criterion.secondValue}
+                </when>
+                <when test="criterion.listValue">
+                  and ${criterion.condition}
+                  <foreach close=")" collection="criterion.value" item="listItem" open="(" separator=",">
+                    #{listItem}
+                  </foreach>
+                </when>
+              </choose>
+            </foreach>
+          </trim>
+        </if>
+      </foreach>
+    </where>
+  </sql>
+<sql id="Base_Column_List">
+	  	  	      	id,
+       	  	      	ybbm,
+       	  	      	babm,
+       	  	      	czmc,
+       	  	      	ssczdm,
+       	  	      	czrq,
+       	  	      	mzfs,
+       	  	      	ssysxm,
+       	  	      	ssysdm,
+       	  	      	mzysxm,
+       	  	    	  	mzysdm
+       	</sql>
+  <select id="selectByExample" parameterType="com.fc.test.model.auto.SjczqtExample" resultMap="BaseResultMap">
+    select
+    <if test="distinct">
+      distinct
+    </if>
+    <include refid="Base_Column_List" />
+    from sjczqt
+    <if test="_parameter != null">
+      <include refid="Example_Where_Clause" />
+    </if>
+    <if test="orderByClause != null">
+      order by ${orderByClause}
+    </if>
+  </select>
+  <select id="selectByPrimaryKey" parameterType="java.lang.Long" resultMap="BaseResultMap">
+    select 
+    <include refid="Base_Column_List" />
+    from sjczqt
+    where id = #{id,jdbcType=BIGINT}
+  </select>
+
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Long">
+    delete from sjczqt
+    where id = #{id,jdbcType=BIGINT}
+  </delete>
+  <delete id="deleteByExample" parameterType="com.fc.test.model.auto.SjczqtExample">
+    delete from sjczqt
+    <if test="_parameter != null">
+      <include refid="Example_Where_Clause" />
+    </if>
+  </delete>
+  
+  <insert id="insert" parameterType="com.fc.test.model.auto.Sjczqt">
+    insert into sjczqt (
+      	  	       id,
+       	  	       ybbm,
+       	  	       babm,
+       	  	       czmc,
+       	  	       ssczdm,
+       	  	       czrq,
+       	  	       mzfs,
+       	  	       ssysxm,
+       	  	       ssysdm,
+       	  	       mzysxm,
+       	  	    	  mzysdm
+       	    )
+    values (
+	  	  	      	#{id,jdbcType=BIGINT},
+       	  	      	#{ybbm,jdbcType=VARCHAR},
+       	  	      	#{babm,jdbcType=VARCHAR},
+       	  	      	#{czmc,jdbcType=VARCHAR},
+       	  	      	#{ssczdm,jdbcType=VARCHAR},
+       	  	      	#{czrq,jdbcType=TIMESTAMP},
+       	  	      	#{mzfs,jdbcType=INTEGER},
+       	  	      	#{ssysxm,jdbcType=VARCHAR},
+       	  	      	#{ssysdm,jdbcType=VARCHAR},
+       	  	      	#{mzysxm,jdbcType=VARCHAR},
+       	  	    	  #{mzysdm,jdbcType=VARCHAR}
+       	    )
+  </insert>
+  
+  <insert id="insertSelective" parameterType="com.fc.test.model.auto.Sjczqt">
+    insert into sjczqt
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+          
+      <if test="id != null">
+        id,
+      </if>
+      
+         
+      <if test="ybbm != null">
+        ybbm,
+      </if>
+      
+         
+      <if test="babm != null">
+        babm,
+      </if>
+      
+         
+      <if test="czmc != null">
+        czmc,
+      </if>
+      
+         
+      <if test="ssczdm != null">
+        ssczdm,
+      </if>
+      
+         
+      <if test="czrq != null">
+        czrq,
+      </if>
+      
+         
+      <if test="mzfs != null">
+        mzfs,
+      </if>
+      
+         
+      <if test="ssysxm != null">
+        ssysxm,
+      </if>
+      
+         
+      <if test="ssysdm != null">
+        ssysdm,
+      </if>
+      
+         
+      <if test="mzysxm != null">
+        mzysxm,
+      </if>
+      
+         
+      <if test="mzysdm != null">
+        mzysdm,
+      </if>
+      
+         </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+          <if test="id != null">
+        #{id,jdbcType=BIGINT},
+      </if>
+          <if test="ybbm != null">
+        #{ybbm,jdbcType=VARCHAR},
+      </if>
+          <if test="babm != null">
+        #{babm,jdbcType=VARCHAR},
+      </if>
+          <if test="czmc != null">
+        #{czmc,jdbcType=VARCHAR},
+      </if>
+          <if test="ssczdm != null">
+        #{ssczdm,jdbcType=VARCHAR},
+      </if>
+          <if test="czrq != null">
+        #{czrq,jdbcType=TIMESTAMP},
+      </if>
+          <if test="mzfs != null">
+        #{mzfs,jdbcType=INTEGER},
+      </if>
+          <if test="ssysxm != null">
+        #{ssysxm,jdbcType=VARCHAR},
+      </if>
+          <if test="ssysdm != null">
+        #{ssysdm,jdbcType=VARCHAR},
+      </if>
+          <if test="mzysxm != null">
+        #{mzysxm,jdbcType=VARCHAR},
+      </if>
+          <if test="mzysdm != null">
+        #{mzysdm,jdbcType=VARCHAR},
+      </if>
+        </trim>
+  </insert>
+  
+  <select id="countByExample" parameterType="com.fc.test.model.auto.SjczqtExample" resultType="java.lang.Long">
+    select count(*) from sjczqt
+    <if test="_parameter != null">
+      <include refid="Example_Where_Clause" />
+    </if>
+  </select>
+  
+  <update id="updateByExampleSelective" parameterType="map">
+    update sjczqt
+    <set>
+          <if test="record.id != null">
+        id = #{record.id,jdbcType=BIGINT},
+      </if>
+          <if test="record.ybbm != null">
+        ybbm = #{record.ybbm,jdbcType=VARCHAR},
+      </if>
+          <if test="record.babm != null">
+        babm = #{record.babm,jdbcType=VARCHAR},
+      </if>
+          <if test="record.czmc != null">
+        czmc = #{record.czmc,jdbcType=VARCHAR},
+      </if>
+          <if test="record.ssczdm != null">
+        ssczdm = #{record.ssczdm,jdbcType=VARCHAR},
+      </if>
+          <if test="record.czrq != null">
+        czrq = #{record.czrq,jdbcType=TIMESTAMP},
+      </if>
+          <if test="record.mzfs != null">
+        mzfs = #{record.mzfs,jdbcType=INTEGER},
+      </if>
+          <if test="record.ssysxm != null">
+        ssysxm = #{record.ssysxm,jdbcType=VARCHAR},
+      </if>
+          <if test="record.ssysdm != null">
+        ssysdm = #{record.ssysdm,jdbcType=VARCHAR},
+      </if>
+          <if test="record.mzysxm != null">
+        mzysxm = #{record.mzysxm,jdbcType=VARCHAR},
+      </if>
+          <if test="record.mzysdm != null">
+        mzysdm = #{record.mzysdm,jdbcType=VARCHAR},
+      </if>
+         
+    </set>
+    <if test="_parameter != null">
+      <include refid="Update_By_Example_Where_Clause" />
+    </if>
+  </update>
+  
+  
+  <update id="updateByExample" parameterType="map">
+    update sjczqt
+    set
+            	     	 id = #{record.id,jdbcType=BIGINT},
+    	         	     	 ybbm = #{record.ybbm,jdbcType=VARCHAR},
+    	         	     	 babm = #{record.babm,jdbcType=VARCHAR},
+    	         	     	 czmc = #{record.czmc,jdbcType=VARCHAR},
+    	         	     	 ssczdm = #{record.ssczdm,jdbcType=VARCHAR},
+    	         	     	 czrq = #{record.czrq,jdbcType=TIMESTAMP},
+    	         	     	 mzfs = #{record.mzfs,jdbcType=INTEGER},
+    	         	     	 ssysxm = #{record.ssysxm,jdbcType=VARCHAR},
+    	         	     	 ssysdm = #{record.ssysdm,jdbcType=VARCHAR},
+    	         	     	 mzysxm = #{record.mzysxm,jdbcType=VARCHAR},
+    	         	     	 mzysdm = #{record.mzysdm,jdbcType=VARCHAR}
+    	         <if test="_parameter != null">
+      <include refid="Update_By_Example_Where_Clause" />
+    </if>
+  </update>
+  
+  
+      <update id="updateByPrimaryKeySelective" parameterType="com.fc.test.model.auto.Sjczqt">
+    update sjczqt
+    <set>
+                          <if test="ybbm != null">
+        ybbm = #{ybbm,jdbcType=VARCHAR},
+      </if>
+                      <if test="babm != null">
+        babm = #{babm,jdbcType=VARCHAR},
+      </if>
+                      <if test="czmc != null">
+        czmc = #{czmc,jdbcType=VARCHAR},
+      </if>
+                      <if test="ssczdm != null">
+        ssczdm = #{ssczdm,jdbcType=VARCHAR},
+      </if>
+                      <if test="czrq != null">
+        czrq = #{czrq,jdbcType=TIMESTAMP},
+      </if>
+                      <if test="mzfs != null">
+        mzfs = #{mzfs,jdbcType=INTEGER},
+      </if>
+                      <if test="ssysxm != null">
+        ssysxm = #{ssysxm,jdbcType=VARCHAR},
+      </if>
+                      <if test="ssysdm != null">
+        ssysdm = #{ssysdm,jdbcType=VARCHAR},
+      </if>
+                      <if test="mzysxm != null">
+        mzysxm = #{mzysxm,jdbcType=VARCHAR},
+      </if>
+                      <if test="mzysdm != null">
+        mzysdm = #{mzysdm,jdbcType=VARCHAR},
+      </if>
+              </set>
+    where 
+            id = #{id,jdbcType=BIGINT}
+                                                                                          
+  </update>
+
+      	      	   	      	   	      	   	      	   	      	   	      	   	      	   	      	   	      	   	      	   	      	
+
+  <update id="updateByPrimaryKey" parameterType="com.fc.test.model.auto.Sjczqt">
+    update sjczqt
+    set 
+             	        	    	 			ybbm = #{ybbm,jdbcType=VARCHAR},
+		     	        	    	 			babm = #{babm,jdbcType=VARCHAR},
+		     	        	    	 			czmc = #{czmc,jdbcType=VARCHAR},
+		     	        	    	 			ssczdm = #{ssczdm,jdbcType=VARCHAR},
+		     	        	    	 			czrq = #{czrq,jdbcType=TIMESTAMP},
+		     	        	    	 			mzfs = #{mzfs,jdbcType=INTEGER},
+		     	        	    	 			ssysxm = #{ssysxm,jdbcType=VARCHAR},
+		     	        	    	 			ssysdm = #{ssysdm,jdbcType=VARCHAR},
+		     	        	    	 			mzysxm = #{mzysxm,jdbcType=VARCHAR},
+		     	        	    	 			mzysdm = #{mzysdm,jdbcType=VARCHAR}
+		     	        where 
+            id = #{id,jdbcType=BIGINT}
+                                                                                            
+  </update>
+  
+                                                           
+</mapper>

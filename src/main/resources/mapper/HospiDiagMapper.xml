@@ -1,0 +1,396 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.fc.test.mapper.auto.HospiDiagMapper">
+  <resultMap id="BaseResultMap" type="com.fc.test.model.auto.HospiDiag">
+    <result column="id" jdbcType="BIGINT" property="id" />
+    <result column="ybbm" jdbcType="VARCHAR" property="ybbm" />
+    <result column="babm" jdbcType="VARCHAR" property="babm" />
+    <result column="zyyllx" jdbcType="INTEGER" property="zyyllx" />
+    <result column="rytj" jdbcType="INTEGER" property="rytj" />
+    <result column="zllb" jdbcType="INTEGER" property="zllb" />
+    <result column="rysj" jdbcType="TIMESTAMP" property="rysj" />
+    <result column="rykb" jdbcType="INTEGER" property="rykb" />
+    <result column="zkkb" jdbcType="INTEGER" property="zkkb" />
+    <result column="cysj" jdbcType="TIMESTAMP" property="cysj" />
+    <result column="cykb" jdbcType="INTEGER" property="cykb" />
+    <result column="sjzyts" jdbcType="INTEGER" property="sjzyts" />
+  </resultMap>
+  <sql id="Example_Where_Clause">
+    <where>
+      <foreach collection="oredCriteria" item="criteria" separator="or">
+        <if test="criteria.valid">
+          <trim prefix="(" prefixOverrides="and" suffix=")">
+            <foreach collection="criteria.criteria" item="criterion">
+              <choose>
+                <when test="criterion.noValue">
+                  and ${criterion.condition}
+                </when>
+                <when test="criterion.singleValue">
+                  and ${criterion.condition} #{criterion.value}
+                </when>
+                <when test="criterion.betweenValue">
+                  and ${criterion.condition} #{criterion.value} and #{criterion.secondValue}
+                </when>
+                <when test="criterion.listValue">
+                  and ${criterion.condition}
+                  <foreach close=")" collection="criterion.value" item="listItem" open="(" separator=",">
+                    #{listItem}
+                  </foreach>
+                </when>
+              </choose>
+            </foreach>
+          </trim>
+        </if>
+      </foreach>
+    </where>
+  </sql>
+  <sql id="Update_By_Example_Where_Clause">
+    <where>
+      <foreach collection="example.oredCriteria" item="criteria" separator="or">
+        <if test="criteria.valid">
+          <trim prefix="(" prefixOverrides="and" suffix=")">
+            <foreach collection="criteria.criteria" item="criterion">
+              <choose>
+                <when test="criterion.noValue">
+                  and ${criterion.condition}
+                </when>
+                <when test="criterion.singleValue">
+                  and ${criterion.condition} #{criterion.value}
+                </when>
+                <when test="criterion.betweenValue">
+                  and ${criterion.condition} #{criterion.value} and #{criterion.secondValue}
+                </when>
+                <when test="criterion.listValue">
+                  and ${criterion.condition}
+                  <foreach close=")" collection="criterion.value" item="listItem" open="(" separator=",">
+                    #{listItem}
+                  </foreach>
+                </when>
+              </choose>
+            </foreach>
+          </trim>
+        </if>
+      </foreach>
+    </where>
+  </sql>
+<sql id="Base_Column_List">
+	  	  	      	id,
+       	  	      	ybbm,
+       	  	      	babm,
+       	  	      	zyyllx,
+       	  	      	rytj,
+       	  	      	zllb,
+       	  	      	rysj,
+       	  	      	rykb,
+       	  	      	zkkb,
+       	  	      	cysj,
+       	  	      	cykb,
+       	  	    	  	sjzyts
+       	</sql>
+  <select id="selectByExample" parameterType="com.fc.test.model.auto.HospiDiagExample" resultMap="BaseResultMap">
+    select
+    <if test="distinct">
+      distinct
+    </if>
+    <include refid="Base_Column_List" />
+    from hospi_diag
+    <if test="_parameter != null">
+      <include refid="Example_Where_Clause" />
+    </if>
+    <if test="orderByClause != null">
+      order by ${orderByClause}
+    </if>
+  </select>
+  <select id="selectByPrimaryKey" parameterType="java.lang.Long" resultMap="BaseResultMap">
+    select 
+    <include refid="Base_Column_List" />
+    from hospi_diag
+    where id = #{id,jdbcType=BIGINT}
+  </select>
+
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Long">
+    delete from hospi_diag
+    where id = #{id,jdbcType=BIGINT}
+  </delete>
+  <delete id="deleteByExample" parameterType="com.fc.test.model.auto.HospiDiagExample">
+    delete from hospi_diag
+    <if test="_parameter != null">
+      <include refid="Example_Where_Clause" />
+    </if>
+  </delete>
+  
+  <insert id="insert" parameterType="com.fc.test.model.auto.HospiDiag">
+    insert into hospi_diag (
+      	  	       id,
+       	  	       ybbm,
+       	  	       babm,
+       	  	       zyyllx,
+       	  	       rytj,
+       	  	       zllb,
+       	  	       rysj,
+       	  	       rykb,
+       	  	       zkkb,
+       	  	       cysj,
+       	  	       cykb,
+       	  	    	  sjzyts
+       	    )
+    values (
+	  	  	      	#{id,jdbcType=BIGINT},
+       	  	      	#{ybbm,jdbcType=VARCHAR},
+       	  	      	#{babm,jdbcType=VARCHAR},
+       	  	      	#{zyyllx,jdbcType=INTEGER},
+       	  	      	#{rytj,jdbcType=INTEGER},
+       	  	      	#{zllb,jdbcType=INTEGER},
+       	  	      	#{rysj,jdbcType=TIMESTAMP},
+       	  	      	#{rykb,jdbcType=INTEGER},
+       	  	      	#{zkkb,jdbcType=INTEGER},
+       	  	      	#{cysj,jdbcType=TIMESTAMP},
+       	  	      	#{cykb,jdbcType=INTEGER},
+       	  	    	  #{sjzyts,jdbcType=INTEGER}
+       	    )
+  </insert>
+  
+  <insert id="insertSelective" parameterType="com.fc.test.model.auto.HospiDiag">
+    insert into hospi_diag
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+          
+      <if test="id != null">
+        id,
+      </if>
+      
+         
+      <if test="ybbm != null">
+        ybbm,
+      </if>
+      
+         
+      <if test="babm != null">
+        babm,
+      </if>
+      
+         
+      <if test="zyyllx != null">
+        zyyllx,
+      </if>
+      
+         
+      <if test="rytj != null">
+        rytj,
+      </if>
+      
+         
+      <if test="zllb != null">
+        zllb,
+      </if>
+      
+         
+      <if test="rysj != null">
+        rysj,
+      </if>
+      
+         
+      <if test="rykb != null">
+        rykb,
+      </if>
+      
+         
+      <if test="zkkb != null">
+        zkkb,
+      </if>
+      
+         
+      <if test="cysj != null">
+        cysj,
+      </if>
+      
+         
+      <if test="cykb != null">
+        cykb,
+      </if>
+      
+         
+      <if test="sjzyts != null">
+        sjzyts,
+      </if>
+      
+         </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+          <if test="id != null">
+        #{id,jdbcType=BIGINT},
+      </if>
+          <if test="ybbm != null">
+        #{ybbm,jdbcType=VARCHAR},
+      </if>
+          <if test="babm != null">
+        #{babm,jdbcType=VARCHAR},
+      </if>
+          <if test="zyyllx != null">
+        #{zyyllx,jdbcType=INTEGER},
+      </if>
+          <if test="rytj != null">
+        #{rytj,jdbcType=INTEGER},
+      </if>
+          <if test="zllb != null">
+        #{zllb,jdbcType=INTEGER},
+      </if>
+          <if test="rysj != null">
+        #{rysj,jdbcType=TIMESTAMP},
+      </if>
+          <if test="rykb != null">
+        #{rykb,jdbcType=INTEGER},
+      </if>
+          <if test="zkkb != null">
+        #{zkkb,jdbcType=INTEGER},
+      </if>
+          <if test="cysj != null">
+        #{cysj,jdbcType=TIMESTAMP},
+      </if>
+          <if test="cykb != null">
+        #{cykb,jdbcType=INTEGER},
+      </if>
+          <if test="sjzyts != null">
+        #{sjzyts,jdbcType=INTEGER},
+      </if>
+        </trim>
+  </insert>
+  
+  <select id="countByExample" parameterType="com.fc.test.model.auto.HospiDiagExample" resultType="java.lang.Long">
+    select count(*) from hospi_diag
+    <if test="_parameter != null">
+      <include refid="Example_Where_Clause" />
+    </if>
+  </select>
+  
+  <update id="updateByExampleSelective" parameterType="map">
+    update hospi_diag
+    <set>
+          <if test="record.id != null">
+        id = #{record.id,jdbcType=BIGINT},
+      </if>
+          <if test="record.ybbm != null">
+        ybbm = #{record.ybbm,jdbcType=VARCHAR},
+      </if>
+          <if test="record.babm != null">
+        babm = #{record.babm,jdbcType=VARCHAR},
+      </if>
+          <if test="record.zyyllx != null">
+        zyyllx = #{record.zyyllx,jdbcType=INTEGER},
+      </if>
+          <if test="record.rytj != null">
+        rytj = #{record.rytj,jdbcType=INTEGER},
+      </if>
+          <if test="record.zllb != null">
+        zllb = #{record.zllb,jdbcType=INTEGER},
+      </if>
+          <if test="record.rysj != null">
+        rysj = #{record.rysj,jdbcType=TIMESTAMP},
+      </if>
+          <if test="record.rykb != null">
+        rykb = #{record.rykb,jdbcType=INTEGER},
+      </if>
+          <if test="record.zkkb != null">
+        zkkb = #{record.zkkb,jdbcType=INTEGER},
+      </if>
+          <if test="record.cysj != null">
+        cysj = #{record.cysj,jdbcType=TIMESTAMP},
+      </if>
+          <if test="record.cykb != null">
+        cykb = #{record.cykb,jdbcType=INTEGER},
+      </if>
+          <if test="record.sjzyts != null">
+        sjzyts = #{record.sjzyts,jdbcType=INTEGER},
+      </if>
+         
+    </set>
+    <if test="_parameter != null">
+      <include refid="Update_By_Example_Where_Clause" />
+    </if>
+  </update>
+  
+  
+  <update id="updateByExample" parameterType="map">
+    update hospi_diag
+    set
+            	     	 id = #{record.id,jdbcType=BIGINT},
+    	         	     	 ybbm = #{record.ybbm,jdbcType=VARCHAR},
+    	         	     	 babm = #{record.babm,jdbcType=VARCHAR},
+    	         	     	 zyyllx = #{record.zyyllx,jdbcType=INTEGER},
+    	         	     	 rytj = #{record.rytj,jdbcType=INTEGER},
+    	         	     	 zllb = #{record.zllb,jdbcType=INTEGER},
+    	         	     	 rysj = #{record.rysj,jdbcType=TIMESTAMP},
+    	         	     	 rykb = #{record.rykb,jdbcType=INTEGER},
+    	         	     	 zkkb = #{record.zkkb,jdbcType=INTEGER},
+    	         	     	 cysj = #{record.cysj,jdbcType=TIMESTAMP},
+    	         	     	 cykb = #{record.cykb,jdbcType=INTEGER},
+    	         	     	 sjzyts = #{record.sjzyts,jdbcType=INTEGER}
+    	         <if test="_parameter != null">
+      <include refid="Update_By_Example_Where_Clause" />
+    </if>
+  </update>
+  
+  
+      <update id="updateByPrimaryKeySelective" parameterType="com.fc.test.model.auto.HospiDiag">
+    update hospi_diag
+    <set>
+                          <if test="ybbm != null">
+        ybbm = #{ybbm,jdbcType=VARCHAR},
+      </if>
+                      <if test="babm != null">
+        babm = #{babm,jdbcType=VARCHAR},
+      </if>
+                      <if test="zyyllx != null">
+        zyyllx = #{zyyllx,jdbcType=INTEGER},
+      </if>
+                      <if test="rytj != null">
+        rytj = #{rytj,jdbcType=INTEGER},
+      </if>
+                      <if test="zllb != null">
+        zllb = #{zllb,jdbcType=INTEGER},
+      </if>
+                      <if test="rysj != null">
+        rysj = #{rysj,jdbcType=TIMESTAMP},
+      </if>
+                      <if test="rykb != null">
+        rykb = #{rykb,jdbcType=INTEGER},
+      </if>
+                      <if test="zkkb != null">
+        zkkb = #{zkkb,jdbcType=INTEGER},
+      </if>
+                      <if test="cysj != null">
+        cysj = #{cysj,jdbcType=TIMESTAMP},
+      </if>
+                      <if test="cykb != null">
+        cykb = #{cykb,jdbcType=INTEGER},
+      </if>
+                      <if test="sjzyts != null">
+        sjzyts = #{sjzyts,jdbcType=INTEGER},
+      </if>
+              </set>
+    where 
+            id = #{id,jdbcType=BIGINT}
+                                                                                                  
+  </update>
+
+      	      	   	      	   	      	   	      	   	      	   	      	   	      	   	      	   	      	   	      	   	      	   	      	
+
+  <update id="updateByPrimaryKey" parameterType="com.fc.test.model.auto.HospiDiag">
+    update hospi_diag
+    set 
+             	        	    	 			ybbm = #{ybbm,jdbcType=VARCHAR},
+		     	        	    	 			babm = #{babm,jdbcType=VARCHAR},
+		     	        	    	 			zyyllx = #{zyyllx,jdbcType=INTEGER},
+		     	        	    	 			rytj = #{rytj,jdbcType=INTEGER},
+		     	        	    	 			zllb = #{zllb,jdbcType=INTEGER},
+		     	        	    	 			rysj = #{rysj,jdbcType=TIMESTAMP},
+		     	        	    	 			rykb = #{rykb,jdbcType=INTEGER},
+		     	        	    	 			zkkb = #{zkkb,jdbcType=INTEGER},
+		     	        	    	 			cysj = #{cysj,jdbcType=TIMESTAMP},
+		     	        	    	 			cykb = #{cykb,jdbcType=INTEGER},
+		     	        	    	 			sjzyts = #{sjzyts,jdbcType=INTEGER}
+		     	        where 
+            id = #{id,jdbcType=BIGINT}
+                                                                                                    
+  </update>
+  
+                                                                
+</mapper>

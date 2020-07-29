@@ -1,0 +1,336 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.fc.test.mapper.auto.MedicChargeMapper">
+  <resultMap id="BaseResultMap" type="com.fc.test.model.auto.MedicCharge">
+    <result column="id" jdbcType="BIGINT" property="id" />
+    <result column="ybbm" jdbcType="VARCHAR" property="ybbm" />
+    <result column="babm" jdbcType="VARCHAR" property="babm" />
+    <result column="ywlsh" jdbcType="VARCHAR" property="ywlsh" />
+    <result column="jsqjksrq" jdbcType="TIMESTAMP" property="jsqjksrq" />
+    <result column="jsqjjsrq" jdbcType="TIMESTAMP" property="jsqjjsrq" />
+    <result column="ybzffs" jdbcType="INTEGER" property="ybzffs" />
+    <result column="createtime" jdbcType="TIMESTAMP" property="createtime" />
+    <result column="updatetime" jdbcType="TIMESTAMP" property="updatetime" />
+  </resultMap>
+  <sql id="Example_Where_Clause">
+    <where>
+      <foreach collection="oredCriteria" item="criteria" separator="or">
+        <if test="criteria.valid">
+          <trim prefix="(" prefixOverrides="and" suffix=")">
+            <foreach collection="criteria.criteria" item="criterion">
+              <choose>
+                <when test="criterion.noValue">
+                  and ${criterion.condition}
+                </when>
+                <when test="criterion.singleValue">
+                  and ${criterion.condition} #{criterion.value}
+                </when>
+                <when test="criterion.betweenValue">
+                  and ${criterion.condition} #{criterion.value} and #{criterion.secondValue}
+                </when>
+                <when test="criterion.listValue">
+                  and ${criterion.condition}
+                  <foreach close=")" collection="criterion.value" item="listItem" open="(" separator=",">
+                    #{listItem}
+                  </foreach>
+                </when>
+              </choose>
+            </foreach>
+          </trim>
+        </if>
+      </foreach>
+    </where>
+  </sql>
+  <sql id="Update_By_Example_Where_Clause">
+    <where>
+      <foreach collection="example.oredCriteria" item="criteria" separator="or">
+        <if test="criteria.valid">
+          <trim prefix="(" prefixOverrides="and" suffix=")">
+            <foreach collection="criteria.criteria" item="criterion">
+              <choose>
+                <when test="criterion.noValue">
+                  and ${criterion.condition}
+                </when>
+                <when test="criterion.singleValue">
+                  and ${criterion.condition} #{criterion.value}
+                </when>
+                <when test="criterion.betweenValue">
+                  and ${criterion.condition} #{criterion.value} and #{criterion.secondValue}
+                </when>
+                <when test="criterion.listValue">
+                  and ${criterion.condition}
+                  <foreach close=")" collection="criterion.value" item="listItem" open="(" separator=",">
+                    #{listItem}
+                  </foreach>
+                </when>
+              </choose>
+            </foreach>
+          </trim>
+        </if>
+      </foreach>
+    </where>
+  </sql>
+<sql id="Base_Column_List">
+	  	  	      	id,
+       	  	      	ybbm,
+       	  	      	babm,
+       	  	      	ywlsh,
+       	  	      	jsqjksrq,
+       	  	      	jsqjjsrq,
+       	  	      	ybzffs,
+       	  	      	createtime,
+       	  	    	  	updatetime
+       	</sql>
+  <select id="selectByExample" parameterType="com.fc.test.model.auto.MedicChargeExample" resultMap="BaseResultMap">
+    select
+    <if test="distinct">
+      distinct
+    </if>
+    <include refid="Base_Column_List" />
+    from medic_charge
+    <if test="_parameter != null">
+      <include refid="Example_Where_Clause" />
+    </if>
+    <if test="orderByClause != null">
+      order by ${orderByClause}
+    </if>
+  </select>
+  <select id="selectByPrimaryKey" parameterType="java.lang.Long" resultMap="BaseResultMap">
+    select 
+    <include refid="Base_Column_List" />
+    from medic_charge
+    where id = #{id,jdbcType=BIGINT}
+  </select>
+
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Long">
+    delete from medic_charge
+    where id = #{id,jdbcType=BIGINT}
+  </delete>
+  <delete id="deleteByExample" parameterType="com.fc.test.model.auto.MedicChargeExample">
+    delete from medic_charge
+    <if test="_parameter != null">
+      <include refid="Example_Where_Clause" />
+    </if>
+  </delete>
+  
+  <insert id="insert" parameterType="com.fc.test.model.auto.MedicCharge">
+    insert into medic_charge (
+      	  	       id,
+       	  	       ybbm,
+       	  	       babm,
+       	  	       ywlsh,
+       	  	       jsqjksrq,
+       	  	       jsqjjsrq,
+       	  	       ybzffs,
+       	  	       createtime,
+       	  	    	  updatetime
+       	    )
+    values (
+	  	  	      	#{id,jdbcType=BIGINT},
+       	  	      	#{ybbm,jdbcType=VARCHAR},
+       	  	      	#{babm,jdbcType=VARCHAR},
+       	  	      	#{ywlsh,jdbcType=VARCHAR},
+       	  	      	#{jsqjksrq,jdbcType=TIMESTAMP},
+       	  	      	#{jsqjjsrq,jdbcType=TIMESTAMP},
+       	  	      	#{ybzffs,jdbcType=INTEGER},
+       	  	      	#{createtime,jdbcType=TIMESTAMP},
+       	  	    	  #{updatetime,jdbcType=TIMESTAMP}
+       	    )
+  </insert>
+  
+  <insert id="insertSelective" parameterType="com.fc.test.model.auto.MedicCharge">
+    insert into medic_charge
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+          
+      <if test="id != null">
+        id,
+      </if>
+      
+         
+      <if test="ybbm != null">
+        ybbm,
+      </if>
+      
+         
+      <if test="babm != null">
+        babm,
+      </if>
+      
+         
+      <if test="ywlsh != null">
+        ywlsh,
+      </if>
+      
+         
+      <if test="jsqjksrq != null">
+        jsqjksrq,
+      </if>
+      
+         
+      <if test="jsqjjsrq != null">
+        jsqjjsrq,
+      </if>
+      
+         
+      <if test="ybzffs != null">
+        ybzffs,
+      </if>
+      
+         
+      <if test="createtime != null">
+        createtime,
+      </if>
+      
+         
+      <if test="updatetime != null">
+        updatetime,
+      </if>
+      
+         </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+          <if test="id != null">
+        #{id,jdbcType=BIGINT},
+      </if>
+          <if test="ybbm != null">
+        #{ybbm,jdbcType=VARCHAR},
+      </if>
+          <if test="babm != null">
+        #{babm,jdbcType=VARCHAR},
+      </if>
+          <if test="ywlsh != null">
+        #{ywlsh,jdbcType=VARCHAR},
+      </if>
+          <if test="jsqjksrq != null">
+        #{jsqjksrq,jdbcType=TIMESTAMP},
+      </if>
+          <if test="jsqjjsrq != null">
+        #{jsqjjsrq,jdbcType=TIMESTAMP},
+      </if>
+          <if test="ybzffs != null">
+        #{ybzffs,jdbcType=INTEGER},
+      </if>
+          <if test="createtime != null">
+        #{createtime,jdbcType=TIMESTAMP},
+      </if>
+          <if test="updatetime != null">
+        #{updatetime,jdbcType=TIMESTAMP},
+      </if>
+        </trim>
+  </insert>
+  
+  <select id="countByExample" parameterType="com.fc.test.model.auto.MedicChargeExample" resultType="java.lang.Long">
+    select count(*) from medic_charge
+    <if test="_parameter != null">
+      <include refid="Example_Where_Clause" />
+    </if>
+  </select>
+  
+  <update id="updateByExampleSelective" parameterType="map">
+    update medic_charge
+    <set>
+          <if test="record.id != null">
+        id = #{record.id,jdbcType=BIGINT},
+      </if>
+          <if test="record.ybbm != null">
+        ybbm = #{record.ybbm,jdbcType=VARCHAR},
+      </if>
+          <if test="record.babm != null">
+        babm = #{record.babm,jdbcType=VARCHAR},
+      </if>
+          <if test="record.ywlsh != null">
+        ywlsh = #{record.ywlsh,jdbcType=VARCHAR},
+      </if>
+          <if test="record.jsqjksrq != null">
+        jsqjksrq = #{record.jsqjksrq,jdbcType=TIMESTAMP},
+      </if>
+          <if test="record.jsqjjsrq != null">
+        jsqjjsrq = #{record.jsqjjsrq,jdbcType=TIMESTAMP},
+      </if>
+          <if test="record.ybzffs != null">
+        ybzffs = #{record.ybzffs,jdbcType=INTEGER},
+      </if>
+          <if test="record.createtime != null">
+        createtime = #{record.createtime,jdbcType=TIMESTAMP},
+      </if>
+          <if test="record.updatetime != null">
+        updatetime = #{record.updatetime,jdbcType=TIMESTAMP},
+      </if>
+         
+    </set>
+    <if test="_parameter != null">
+      <include refid="Update_By_Example_Where_Clause" />
+    </if>
+  </update>
+  
+  
+  <update id="updateByExample" parameterType="map">
+    update medic_charge
+    set
+            	     	 id = #{record.id,jdbcType=BIGINT},
+    	         	     	 ybbm = #{record.ybbm,jdbcType=VARCHAR},
+    	         	     	 babm = #{record.babm,jdbcType=VARCHAR},
+    	         	     	 ywlsh = #{record.ywlsh,jdbcType=VARCHAR},
+    	         	     	 jsqjksrq = #{record.jsqjksrq,jdbcType=TIMESTAMP},
+    	         	     	 jsqjjsrq = #{record.jsqjjsrq,jdbcType=TIMESTAMP},
+    	         	     	 ybzffs = #{record.ybzffs,jdbcType=INTEGER},
+    	         	     	 createtime = #{record.createtime,jdbcType=TIMESTAMP},
+    	         	     	 updatetime = #{record.updatetime,jdbcType=TIMESTAMP}
+    	         <if test="_parameter != null">
+      <include refid="Update_By_Example_Where_Clause" />
+    </if>
+  </update>
+  
+  
+      <update id="updateByPrimaryKeySelective" parameterType="com.fc.test.model.auto.MedicCharge">
+    update medic_charge
+    <set>
+                          <if test="ybbm != null">
+        ybbm = #{ybbm,jdbcType=VARCHAR},
+      </if>
+                      <if test="babm != null">
+        babm = #{babm,jdbcType=VARCHAR},
+      </if>
+                      <if test="ywlsh != null">
+        ywlsh = #{ywlsh,jdbcType=VARCHAR},
+      </if>
+                      <if test="jsqjksrq != null">
+        jsqjksrq = #{jsqjksrq,jdbcType=TIMESTAMP},
+      </if>
+                      <if test="jsqjjsrq != null">
+        jsqjjsrq = #{jsqjjsrq,jdbcType=TIMESTAMP},
+      </if>
+                      <if test="ybzffs != null">
+        ybzffs = #{ybzffs,jdbcType=INTEGER},
+      </if>
+                      <if test="createtime != null">
+        createtime = #{createtime,jdbcType=TIMESTAMP},
+      </if>
+                      <if test="updatetime != null">
+        updatetime = #{updatetime,jdbcType=TIMESTAMP},
+      </if>
+              </set>
+    where 
+            id = #{id,jdbcType=BIGINT}
+                                                                          
+  </update>
+
+      	      	   	      	   	      	   	      	   	      	   	      	   	      	   	      	   	      	
+
+  <update id="updateByPrimaryKey" parameterType="com.fc.test.model.auto.MedicCharge">
+    update medic_charge
+    set 
+             	        	    	 			ybbm = #{ybbm,jdbcType=VARCHAR},
+		     	        	    	 			babm = #{babm,jdbcType=VARCHAR},
+		     	        	    	 			ywlsh = #{ywlsh,jdbcType=VARCHAR},
+		     	        	    	 			jsqjksrq = #{jsqjksrq,jdbcType=TIMESTAMP},
+		     	        	    	 			jsqjjsrq = #{jsqjjsrq,jdbcType=TIMESTAMP},
+		     	        	    	 			ybzffs = #{ybzffs,jdbcType=INTEGER},
+		     	        	    	 			createtime = #{createtime,jdbcType=TIMESTAMP},
+		     	        	    	 			updatetime = #{updatetime,jdbcType=TIMESTAMP}
+		     	        where 
+            id = #{id,jdbcType=BIGINT}
+                                                                            
+  </update>
+  
+                                                 
+</mapper>

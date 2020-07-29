@@ -1,0 +1,276 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.fc.test.mapper.auto.CyzyzzMapper">
+  <resultMap id="BaseResultMap" type="com.fc.test.model.auto.Cyzyzz">
+    <result column="id" jdbcType="BIGINT" property="id" />
+    <result column="ybbm" jdbcType="VARCHAR" property="ybbm" />
+    <result column="babm" jdbcType="VARCHAR" property="babm" />
+    <result column="jbmc" jdbcType="VARCHAR" property="jbmc" />
+    <result column="jbdm" jdbcType="VARCHAR" property="jbdm" />
+    <result column="ryxqlb" jdbcType="VARCHAR" property="ryxqlb" />
+  </resultMap>
+  <sql id="Example_Where_Clause">
+    <where>
+      <foreach collection="oredCriteria" item="criteria" separator="or">
+        <if test="criteria.valid">
+          <trim prefix="(" prefixOverrides="and" suffix=")">
+            <foreach collection="criteria.criteria" item="criterion">
+              <choose>
+                <when test="criterion.noValue">
+                  and ${criterion.condition}
+                </when>
+                <when test="criterion.singleValue">
+                  and ${criterion.condition} #{criterion.value}
+                </when>
+                <when test="criterion.betweenValue">
+                  and ${criterion.condition} #{criterion.value} and #{criterion.secondValue}
+                </when>
+                <when test="criterion.listValue">
+                  and ${criterion.condition}
+                  <foreach close=")" collection="criterion.value" item="listItem" open="(" separator=",">
+                    #{listItem}
+                  </foreach>
+                </when>
+              </choose>
+            </foreach>
+          </trim>
+        </if>
+      </foreach>
+    </where>
+  </sql>
+  <sql id="Update_By_Example_Where_Clause">
+    <where>
+      <foreach collection="example.oredCriteria" item="criteria" separator="or">
+        <if test="criteria.valid">
+          <trim prefix="(" prefixOverrides="and" suffix=")">
+            <foreach collection="criteria.criteria" item="criterion">
+              <choose>
+                <when test="criterion.noValue">
+                  and ${criterion.condition}
+                </when>
+                <when test="criterion.singleValue">
+                  and ${criterion.condition} #{criterion.value}
+                </when>
+                <when test="criterion.betweenValue">
+                  and ${criterion.condition} #{criterion.value} and #{criterion.secondValue}
+                </when>
+                <when test="criterion.listValue">
+                  and ${criterion.condition}
+                  <foreach close=")" collection="criterion.value" item="listItem" open="(" separator=",">
+                    #{listItem}
+                  </foreach>
+                </when>
+              </choose>
+            </foreach>
+          </trim>
+        </if>
+      </foreach>
+    </where>
+  </sql>
+<sql id="Base_Column_List">
+	  	  	      	id,
+       	  	      	ybbm,
+       	  	      	babm,
+       	  	      	jbmc,
+       	  	      	jbdm,
+       	  	    	  	ryxqlb
+       	</sql>
+  <select id="selectByExample" parameterType="com.fc.test.model.auto.CyzyzzExample" resultMap="BaseResultMap">
+    select
+    <if test="distinct">
+      distinct
+    </if>
+    <include refid="Base_Column_List" />
+    from cyzyzz
+    <if test="_parameter != null">
+      <include refid="Example_Where_Clause" />
+    </if>
+    <if test="orderByClause != null">
+      order by ${orderByClause}
+    </if>
+  </select>
+  <select id="selectByPrimaryKey" parameterType="java.lang.Long" resultMap="BaseResultMap">
+    select 
+    <include refid="Base_Column_List" />
+    from cyzyzz
+    where id = #{id,jdbcType=BIGINT}
+  </select>
+
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Long">
+    delete from cyzyzz
+    where id = #{id,jdbcType=BIGINT}
+  </delete>
+  <delete id="deleteByExample" parameterType="com.fc.test.model.auto.CyzyzzExample">
+    delete from cyzyzz
+    <if test="_parameter != null">
+      <include refid="Example_Where_Clause" />
+    </if>
+  </delete>
+  
+  <insert id="insert" parameterType="com.fc.test.model.auto.Cyzyzz">
+    insert into cyzyzz (
+      	  	       id,
+       	  	       ybbm,
+       	  	       babm,
+       	  	       jbmc,
+       	  	       jbdm,
+       	  	    	  ryxqlb
+       	    )
+    values (
+	  	  	      	#{id,jdbcType=BIGINT},
+       	  	      	#{ybbm,jdbcType=VARCHAR},
+       	  	      	#{babm,jdbcType=VARCHAR},
+       	  	      	#{jbmc,jdbcType=VARCHAR},
+       	  	      	#{jbdm,jdbcType=VARCHAR},
+       	  	    	  #{ryxqlb,jdbcType=VARCHAR}
+       	    )
+  </insert>
+  
+  <insert id="insertSelective" parameterType="com.fc.test.model.auto.Cyzyzz">
+    insert into cyzyzz
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+          
+      <if test="id != null">
+        id,
+      </if>
+      
+         
+      <if test="ybbm != null">
+        ybbm,
+      </if>
+      
+         
+      <if test="babm != null">
+        babm,
+      </if>
+      
+         
+      <if test="jbmc != null">
+        jbmc,
+      </if>
+      
+         
+      <if test="jbdm != null">
+        jbdm,
+      </if>
+      
+         
+      <if test="ryxqlb != null">
+        ryxqlb,
+      </if>
+      
+         </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+          <if test="id != null">
+        #{id,jdbcType=BIGINT},
+      </if>
+          <if test="ybbm != null">
+        #{ybbm,jdbcType=VARCHAR},
+      </if>
+          <if test="babm != null">
+        #{babm,jdbcType=VARCHAR},
+      </if>
+          <if test="jbmc != null">
+        #{jbmc,jdbcType=VARCHAR},
+      </if>
+          <if test="jbdm != null">
+        #{jbdm,jdbcType=VARCHAR},
+      </if>
+          <if test="ryxqlb != null">
+        #{ryxqlb,jdbcType=VARCHAR},
+      </if>
+        </trim>
+  </insert>
+  
+  <select id="countByExample" parameterType="com.fc.test.model.auto.CyzyzzExample" resultType="java.lang.Long">
+    select count(*) from cyzyzz
+    <if test="_parameter != null">
+      <include refid="Example_Where_Clause" />
+    </if>
+  </select>
+  
+  <update id="updateByExampleSelective" parameterType="map">
+    update cyzyzz
+    <set>
+          <if test="record.id != null">
+        id = #{record.id,jdbcType=BIGINT},
+      </if>
+          <if test="record.ybbm != null">
+        ybbm = #{record.ybbm,jdbcType=VARCHAR},
+      </if>
+          <if test="record.babm != null">
+        babm = #{record.babm,jdbcType=VARCHAR},
+      </if>
+          <if test="record.jbmc != null">
+        jbmc = #{record.jbmc,jdbcType=VARCHAR},
+      </if>
+          <if test="record.jbdm != null">
+        jbdm = #{record.jbdm,jdbcType=VARCHAR},
+      </if>
+          <if test="record.ryxqlb != null">
+        ryxqlb = #{record.ryxqlb,jdbcType=VARCHAR},
+      </if>
+         
+    </set>
+    <if test="_parameter != null">
+      <include refid="Update_By_Example_Where_Clause" />
+    </if>
+  </update>
+  
+  
+  <update id="updateByExample" parameterType="map">
+    update cyzyzz
+    set
+            	     	 id = #{record.id,jdbcType=BIGINT},
+    	         	     	 ybbm = #{record.ybbm,jdbcType=VARCHAR},
+    	         	     	 babm = #{record.babm,jdbcType=VARCHAR},
+    	         	     	 jbmc = #{record.jbmc,jdbcType=VARCHAR},
+    	         	     	 jbdm = #{record.jbdm,jdbcType=VARCHAR},
+    	         	     	 ryxqlb = #{record.ryxqlb,jdbcType=VARCHAR}
+    	         <if test="_parameter != null">
+      <include refid="Update_By_Example_Where_Clause" />
+    </if>
+  </update>
+  
+  
+      <update id="updateByPrimaryKeySelective" parameterType="com.fc.test.model.auto.Cyzyzz">
+    update cyzyzz
+    <set>
+                          <if test="ybbm != null">
+        ybbm = #{ybbm,jdbcType=VARCHAR},
+      </if>
+                      <if test="babm != null">
+        babm = #{babm,jdbcType=VARCHAR},
+      </if>
+                      <if test="jbmc != null">
+        jbmc = #{jbmc,jdbcType=VARCHAR},
+      </if>
+                      <if test="jbdm != null">
+        jbdm = #{jbdm,jdbcType=VARCHAR},
+      </if>
+                      <if test="ryxqlb != null">
+        ryxqlb = #{ryxqlb,jdbcType=VARCHAR},
+      </if>
+              </set>
+    where 
+            id = #{id,jdbcType=BIGINT}
+                                                  
+  </update>
+
+      	      	   	      	   	      	   	      	   	      	   	      	
+
+  <update id="updateByPrimaryKey" parameterType="com.fc.test.model.auto.Cyzyzz">
+    update cyzyzz
+    set 
+             	        	    	 			ybbm = #{ybbm,jdbcType=VARCHAR},
+		     	        	    	 			babm = #{babm,jdbcType=VARCHAR},
+		     	        	    	 			jbmc = #{jbmc,jdbcType=VARCHAR},
+		     	        	    	 			jbdm = #{jbdm,jdbcType=VARCHAR},
+		     	        	    	 			ryxqlb = #{ryxqlb,jdbcType=VARCHAR}
+		     	        where 
+            id = #{id,jdbcType=BIGINT}
+                                                    
+  </update>
+  
+                                  
+</mapper>

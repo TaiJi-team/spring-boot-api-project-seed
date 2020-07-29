@@ -1,0 +1,376 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.fc.test.mapper.auto.DrgsTitleMapper">
+  <resultMap id="BaseResultMap" type="com.fc.test.model.auto.DrgsTitle">
+    <result column="id" jdbcType="BIGINT" property="id" />
+    <result column="ybbm" jdbcType="VARCHAR" property="ybbm" />
+    <result column="babm" jdbcType="VARCHAR" property="babm" />
+    <result column="yljgmc" jdbcType="VARCHAR" property="yljgmc" />
+    <result column="yljgdm" jdbcType="VARCHAR" property="yljgdm" />
+    <result column="ybjsdj" jdbcType="INTEGER" property="ybjsdj" />
+    <result column="sbsj" jdbcType="TIMESTAMP" property="sbsj" />
+    <result column="tbbm" jdbcType="VARCHAR" property="tbbm" />
+    <result column="tbr" jdbcType="VARCHAR" property="tbr" />
+    <result column="createtime" jdbcType="TIMESTAMP" property="createtime" />
+    <result column="updatetime" jdbcType="TIMESTAMP" property="updatetime" />
+  </resultMap>
+  <sql id="Example_Where_Clause">
+    <where>
+      <foreach collection="oredCriteria" item="criteria" separator="or">
+        <if test="criteria.valid">
+          <trim prefix="(" prefixOverrides="and" suffix=")">
+            <foreach collection="criteria.criteria" item="criterion">
+              <choose>
+                <when test="criterion.noValue">
+                  and ${criterion.condition}
+                </when>
+                <when test="criterion.singleValue">
+                  and ${criterion.condition} #{criterion.value}
+                </when>
+                <when test="criterion.betweenValue">
+                  and ${criterion.condition} #{criterion.value} and #{criterion.secondValue}
+                </when>
+                <when test="criterion.listValue">
+                  and ${criterion.condition}
+                  <foreach close=")" collection="criterion.value" item="listItem" open="(" separator=",">
+                    #{listItem}
+                  </foreach>
+                </when>
+              </choose>
+            </foreach>
+          </trim>
+        </if>
+      </foreach>
+    </where>
+  </sql>
+  <sql id="Update_By_Example_Where_Clause">
+    <where>
+      <foreach collection="example.oredCriteria" item="criteria" separator="or">
+        <if test="criteria.valid">
+          <trim prefix="(" prefixOverrides="and" suffix=")">
+            <foreach collection="criteria.criteria" item="criterion">
+              <choose>
+                <when test="criterion.noValue">
+                  and ${criterion.condition}
+                </when>
+                <when test="criterion.singleValue">
+                  and ${criterion.condition} #{criterion.value}
+                </when>
+                <when test="criterion.betweenValue">
+                  and ${criterion.condition} #{criterion.value} and #{criterion.secondValue}
+                </when>
+                <when test="criterion.listValue">
+                  and ${criterion.condition}
+                  <foreach close=")" collection="criterion.value" item="listItem" open="(" separator=",">
+                    #{listItem}
+                  </foreach>
+                </when>
+              </choose>
+            </foreach>
+          </trim>
+        </if>
+      </foreach>
+    </where>
+  </sql>
+<sql id="Base_Column_List">
+	  	  	      	id,
+       	  	      	ybbm,
+       	  	      	babm,
+       	  	      	yljgmc,
+       	  	      	yljgdm,
+       	  	      	ybjsdj,
+       	  	      	sbsj,
+       	  	      	tbbm,
+       	  	      	tbr,
+       	  	      	createtime,
+       	  	    	  	updatetime
+       	</sql>
+  <select id="selectByExample" parameterType="com.fc.test.model.auto.DrgsTitleExample" resultMap="BaseResultMap">
+    select
+    <if test="distinct">
+      distinct
+    </if>
+    <include refid="Base_Column_List" />
+    from drgs_title
+    <if test="_parameter != null">
+      <include refid="Example_Where_Clause" />
+    </if>
+    <if test="orderByClause != null">
+      order by ${orderByClause}
+    </if>
+  </select>
+  <select id="selectByPrimaryKey" parameterType="java.lang.Long" resultMap="BaseResultMap">
+    select 
+    <include refid="Base_Column_List" />
+    from drgs_title
+    where id = #{id,jdbcType=BIGINT}
+  </select>
+
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Long">
+    delete from drgs_title
+    where id = #{id,jdbcType=BIGINT}
+  </delete>
+  <delete id="deleteByExample" parameterType="com.fc.test.model.auto.DrgsTitleExample">
+    delete from drgs_title
+    <if test="_parameter != null">
+      <include refid="Example_Where_Clause" />
+    </if>
+  </delete>
+  
+  <insert id="insert" parameterType="com.fc.test.model.auto.DrgsTitle">
+    insert into drgs_title (
+      	  	       id,
+       	  	       ybbm,
+       	  	       babm,
+       	  	       yljgmc,
+       	  	       yljgdm,
+       	  	       ybjsdj,
+       	  	       sbsj,
+       	  	       tbbm,
+       	  	       tbr,
+       	  	       createtime,
+       	  	    	  updatetime
+       	    )
+    values (
+	  	  	      	#{id,jdbcType=BIGINT},
+       	  	      	#{ybbm,jdbcType=VARCHAR},
+       	  	      	#{babm,jdbcType=VARCHAR},
+       	  	      	#{yljgmc,jdbcType=VARCHAR},
+       	  	      	#{yljgdm,jdbcType=VARCHAR},
+       	  	      	#{ybjsdj,jdbcType=INTEGER},
+       	  	      	#{sbsj,jdbcType=TIMESTAMP},
+       	  	      	#{tbbm,jdbcType=VARCHAR},
+       	  	      	#{tbr,jdbcType=VARCHAR},
+       	  	      	#{createtime,jdbcType=TIMESTAMP},
+       	  	    	  #{updatetime,jdbcType=TIMESTAMP}
+       	    )
+  </insert>
+  
+  <insert id="insertSelective" parameterType="com.fc.test.model.auto.DrgsTitle">
+    insert into drgs_title
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+          
+      <if test="id != null">
+        id,
+      </if>
+      
+         
+      <if test="ybbm != null">
+        ybbm,
+      </if>
+      
+         
+      <if test="babm != null">
+        babm,
+      </if>
+      
+         
+      <if test="yljgmc != null">
+        yljgmc,
+      </if>
+      
+         
+      <if test="yljgdm != null">
+        yljgdm,
+      </if>
+      
+         
+      <if test="ybjsdj != null">
+        ybjsdj,
+      </if>
+      
+         
+      <if test="sbsj != null">
+        sbsj,
+      </if>
+      
+         
+      <if test="tbbm != null">
+        tbbm,
+      </if>
+      
+         
+      <if test="tbr != null">
+        tbr,
+      </if>
+      
+         
+      <if test="createtime != null">
+        createtime,
+      </if>
+      
+         
+      <if test="updatetime != null">
+        updatetime,
+      </if>
+      
+         </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+          <if test="id != null">
+        #{id,jdbcType=BIGINT},
+      </if>
+          <if test="ybbm != null">
+        #{ybbm,jdbcType=VARCHAR},
+      </if>
+          <if test="babm != null">
+        #{babm,jdbcType=VARCHAR},
+      </if>
+          <if test="yljgmc != null">
+        #{yljgmc,jdbcType=VARCHAR},
+      </if>
+          <if test="yljgdm != null">
+        #{yljgdm,jdbcType=VARCHAR},
+      </if>
+          <if test="ybjsdj != null">
+        #{ybjsdj,jdbcType=INTEGER},
+      </if>
+          <if test="sbsj != null">
+        #{sbsj,jdbcType=TIMESTAMP},
+      </if>
+          <if test="tbbm != null">
+        #{tbbm,jdbcType=VARCHAR},
+      </if>
+          <if test="tbr != null">
+        #{tbr,jdbcType=VARCHAR},
+      </if>
+          <if test="createtime != null">
+        #{createtime,jdbcType=TIMESTAMP},
+      </if>
+          <if test="updatetime != null">
+        #{updatetime,jdbcType=TIMESTAMP},
+      </if>
+        </trim>
+  </insert>
+  
+  <select id="countByExample" parameterType="com.fc.test.model.auto.DrgsTitleExample" resultType="java.lang.Long">
+    select count(*) from drgs_title
+    <if test="_parameter != null">
+      <include refid="Example_Where_Clause" />
+    </if>
+  </select>
+  
+  <update id="updateByExampleSelective" parameterType="map">
+    update drgs_title
+    <set>
+          <if test="record.id != null">
+        id = #{record.id,jdbcType=BIGINT},
+      </if>
+          <if test="record.ybbm != null">
+        ybbm = #{record.ybbm,jdbcType=VARCHAR},
+      </if>
+          <if test="record.babm != null">
+        babm = #{record.babm,jdbcType=VARCHAR},
+      </if>
+          <if test="record.yljgmc != null">
+        yljgmc = #{record.yljgmc,jdbcType=VARCHAR},
+      </if>
+          <if test="record.yljgdm != null">
+        yljgdm = #{record.yljgdm,jdbcType=VARCHAR},
+      </if>
+          <if test="record.ybjsdj != null">
+        ybjsdj = #{record.ybjsdj,jdbcType=INTEGER},
+      </if>
+          <if test="record.sbsj != null">
+        sbsj = #{record.sbsj,jdbcType=TIMESTAMP},
+      </if>
+          <if test="record.tbbm != null">
+        tbbm = #{record.tbbm,jdbcType=VARCHAR},
+      </if>
+          <if test="record.tbr != null">
+        tbr = #{record.tbr,jdbcType=VARCHAR},
+      </if>
+          <if test="record.createtime != null">
+        createtime = #{record.createtime,jdbcType=TIMESTAMP},
+      </if>
+          <if test="record.updatetime != null">
+        updatetime = #{record.updatetime,jdbcType=TIMESTAMP},
+      </if>
+         
+    </set>
+    <if test="_parameter != null">
+      <include refid="Update_By_Example_Where_Clause" />
+    </if>
+  </update>
+  
+  
+  <update id="updateByExample" parameterType="map">
+    update drgs_title
+    set
+            	     	 id = #{record.id,jdbcType=BIGINT},
+    	         	     	 ybbm = #{record.ybbm,jdbcType=VARCHAR},
+    	         	     	 babm = #{record.babm,jdbcType=VARCHAR},
+    	         	     	 yljgmc = #{record.yljgmc,jdbcType=VARCHAR},
+    	         	     	 yljgdm = #{record.yljgdm,jdbcType=VARCHAR},
+    	         	     	 ybjsdj = #{record.ybjsdj,jdbcType=INTEGER},
+    	         	     	 sbsj = #{record.sbsj,jdbcType=TIMESTAMP},
+    	         	     	 tbbm = #{record.tbbm,jdbcType=VARCHAR},
+    	         	     	 tbr = #{record.tbr,jdbcType=VARCHAR},
+    	         	     	 createtime = #{record.createtime,jdbcType=TIMESTAMP},
+    	         	     	 updatetime = #{record.updatetime,jdbcType=TIMESTAMP}
+    	         <if test="_parameter != null">
+      <include refid="Update_By_Example_Where_Clause" />
+    </if>
+  </update>
+  
+  
+      <update id="updateByPrimaryKeySelective" parameterType="com.fc.test.model.auto.DrgsTitle">
+    update drgs_title
+    <set>
+                          <if test="ybbm != null">
+        ybbm = #{ybbm,jdbcType=VARCHAR},
+      </if>
+                      <if test="babm != null">
+        babm = #{babm,jdbcType=VARCHAR},
+      </if>
+                      <if test="yljgmc != null">
+        yljgmc = #{yljgmc,jdbcType=VARCHAR},
+      </if>
+                      <if test="yljgdm != null">
+        yljgdm = #{yljgdm,jdbcType=VARCHAR},
+      </if>
+                      <if test="ybjsdj != null">
+        ybjsdj = #{ybjsdj,jdbcType=INTEGER},
+      </if>
+                      <if test="sbsj != null">
+        sbsj = #{sbsj,jdbcType=TIMESTAMP},
+      </if>
+                      <if test="tbbm != null">
+        tbbm = #{tbbm,jdbcType=VARCHAR},
+      </if>
+                      <if test="tbr != null">
+        tbr = #{tbr,jdbcType=VARCHAR},
+      </if>
+                      <if test="createtime != null">
+        createtime = #{createtime,jdbcType=TIMESTAMP},
+      </if>
+                      <if test="updatetime != null">
+        updatetime = #{updatetime,jdbcType=TIMESTAMP},
+      </if>
+              </set>
+    where 
+            id = #{id,jdbcType=BIGINT}
+                                                                                          
+  </update>
+
+      	      	   	      	   	      	   	      	   	      	   	      	   	      	   	      	   	      	   	      	   	      	
+
+  <update id="updateByPrimaryKey" parameterType="com.fc.test.model.auto.DrgsTitle">
+    update drgs_title
+    set 
+             	        	    	 			ybbm = #{ybbm,jdbcType=VARCHAR},
+		     	        	    	 			babm = #{babm,jdbcType=VARCHAR},
+		     	        	    	 			yljgmc = #{yljgmc,jdbcType=VARCHAR},
+		     	        	    	 			yljgdm = #{yljgdm,jdbcType=VARCHAR},
+		     	        	    	 			ybjsdj = #{ybjsdj,jdbcType=INTEGER},
+		     	        	    	 			sbsj = #{sbsj,jdbcType=TIMESTAMP},
+		     	        	    	 			tbbm = #{tbbm,jdbcType=VARCHAR},
+		     	        	    	 			tbr = #{tbr,jdbcType=VARCHAR},
+		     	        	    	 			createtime = #{createtime,jdbcType=TIMESTAMP},
+		     	        	    	 			updatetime = #{updatetime,jdbcType=TIMESTAMP}
+		     	        where 
+            id = #{id,jdbcType=BIGINT}
+                                                                                            
+  </update>
+  
+                                                           
+</mapper>

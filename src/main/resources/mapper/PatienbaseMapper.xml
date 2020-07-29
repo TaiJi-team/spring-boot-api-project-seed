@@ -1,0 +1,756 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.fc.test.mapper.auto.PatienbaseMapper">
+  <resultMap id="BaseResultMap" type="com.fc.test.model.auto.Patienbase">
+    <result column="id" jdbcType="BIGINT" property="id" />
+    <result column="ybbm" jdbcType="VARCHAR" property="ybbm" />
+    <result column="babm" jdbcType="VARCHAR" property="babm" />
+    <result column="xm" jdbcType="VARCHAR" property="xm" />
+    <result column="xb" jdbcType="INTEGER" property="xb" />
+    <result column="csrq" jdbcType="TIMESTAMP" property="csrq" />
+    <result column="nl" jdbcType="INTEGER" property="nl" />
+    <result column="gj" jdbcType="VARCHAR" property="gj" />
+    <result column="bzzsnl" jdbcType="VARCHAR" property="bzzsnl" />
+    <result column="mz" jdbcType="INTEGER" property="mz" />
+    <result column="zjlb" jdbcType="VARCHAR" property="zjlb" />
+    <result column="zjhm" jdbcType="VARCHAR" property="zjhm" />
+    <result column="zy" jdbcType="VARCHAR" property="zy" />
+    <result column="xzz" jdbcType="VARCHAR" property="xzz" />
+    <result column="dwmc" jdbcType="VARCHAR" property="dwmc" />
+    <result column="dwdz" jdbcType="VARCHAR" property="dwdz" />
+    <result column="dwdh" jdbcType="VARCHAR" property="dwdh" />
+    <result column="dwyb" jdbcType="VARCHAR" property="dwyb" />
+    <result column="lxr" jdbcType="VARCHAR" property="lxr" />
+    <result column="gx" jdbcType="VARCHAR" property="gx" />
+    <result column="lxrdz" jdbcType="VARCHAR" property="lxrdz" />
+    <result column="lxrdh" jdbcType="VARCHAR" property="lxrdh" />
+    <result column="yblx" jdbcType="VARCHAR" property="yblx" />
+    <result column="tsrylx" jdbcType="VARCHAR" property="tsrylx" />
+    <result column="cbddm" jdbcType="VARCHAR" property="cbddm" />
+    <result column="xserylx" jdbcType="VARCHAR" property="xserylx" />
+    <result column="xsecstz" jdbcType="VARCHAR" property="xsecstz" />
+    <result column="xserytz" jdbcType="VARCHAR" property="xserytz" />
+    <result column="createtime" jdbcType="TIMESTAMP" property="createtime" />
+    <result column="updatetime" jdbcType="TIMESTAMP" property="updatetime" />
+  </resultMap>
+  <sql id="Example_Where_Clause">
+    <where>
+      <foreach collection="oredCriteria" item="criteria" separator="or">
+        <if test="criteria.valid">
+          <trim prefix="(" prefixOverrides="and" suffix=")">
+            <foreach collection="criteria.criteria" item="criterion">
+              <choose>
+                <when test="criterion.noValue">
+                  and ${criterion.condition}
+                </when>
+                <when test="criterion.singleValue">
+                  and ${criterion.condition} #{criterion.value}
+                </when>
+                <when test="criterion.betweenValue">
+                  and ${criterion.condition} #{criterion.value} and #{criterion.secondValue}
+                </when>
+                <when test="criterion.listValue">
+                  and ${criterion.condition}
+                  <foreach close=")" collection="criterion.value" item="listItem" open="(" separator=",">
+                    #{listItem}
+                  </foreach>
+                </when>
+              </choose>
+            </foreach>
+          </trim>
+        </if>
+      </foreach>
+    </where>
+  </sql>
+  <sql id="Update_By_Example_Where_Clause">
+    <where>
+      <foreach collection="example.oredCriteria" item="criteria" separator="or">
+        <if test="criteria.valid">
+          <trim prefix="(" prefixOverrides="and" suffix=")">
+            <foreach collection="criteria.criteria" item="criterion">
+              <choose>
+                <when test="criterion.noValue">
+                  and ${criterion.condition}
+                </when>
+                <when test="criterion.singleValue">
+                  and ${criterion.condition} #{criterion.value}
+                </when>
+                <when test="criterion.betweenValue">
+                  and ${criterion.condition} #{criterion.value} and #{criterion.secondValue}
+                </when>
+                <when test="criterion.listValue">
+                  and ${criterion.condition}
+                  <foreach close=")" collection="criterion.value" item="listItem" open="(" separator=",">
+                    #{listItem}
+                  </foreach>
+                </when>
+              </choose>
+            </foreach>
+          </trim>
+        </if>
+      </foreach>
+    </where>
+  </sql>
+<sql id="Base_Column_List">
+	  	  	      	id,
+       	  	      	ybbm,
+       	  	      	babm,
+       	  	      	xm,
+       	  	      	xb,
+       	  	      	csrq,
+       	  	      	nl,
+       	  	      	gj,
+       	  	      	bzzsnl,
+       	  	      	mz,
+       	  	      	zjlb,
+       	  	      	zjhm,
+       	  	      	zy,
+       	  	      	xzz,
+       	  	      	dwmc,
+       	  	      	dwdz,
+       	  	      	dwdh,
+       	  	      	dwyb,
+       	  	      	lxr,
+       	  	      	gx,
+       	  	      	lxrdz,
+       	  	      	lxrdh,
+       	  	      	yblx,
+       	  	      	tsrylx,
+       	  	      	cbddm,
+       	  	      	xserylx,
+       	  	      	xsecstz,
+       	  	      	xserytz,
+       	  	      	createtime,
+       	  	    	  	updatetime
+       	</sql>
+  <select id="selectByExample" parameterType="com.fc.test.model.auto.PatienbaseExample" resultMap="BaseResultMap">
+    select
+    <if test="distinct">
+      distinct
+    </if>
+    <include refid="Base_Column_List" />
+    from patient_base
+    <if test="_parameter != null">
+      <include refid="Example_Where_Clause" />
+    </if>
+    <if test="orderByClause != null">
+      order by ${orderByClause}
+    </if>
+  </select>
+  <select id="selectByPrimaryKey" parameterType="java.lang.Long" resultMap="BaseResultMap">
+    select 
+    <include refid="Base_Column_List" />
+    from patient_base
+    where id = #{id,jdbcType=BIGINT}
+  </select>
+
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Long">
+    delete from patient_base
+    where id = #{id,jdbcType=BIGINT}
+  </delete>
+  <delete id="deleteByExample" parameterType="com.fc.test.model.auto.PatienbaseExample">
+    delete from patient_base
+    <if test="_parameter != null">
+      <include refid="Example_Where_Clause" />
+    </if>
+  </delete>
+  
+  <insert id="insert" parameterType="com.fc.test.model.auto.Patienbase">
+    insert into patient_base (
+      	  	       id,
+       	  	       ybbm,
+       	  	       babm,
+       	  	       xm,
+       	  	       xb,
+       	  	       csrq,
+       	  	       nl,
+       	  	       gj,
+       	  	       bzzsnl,
+       	  	       mz,
+       	  	       zjlb,
+       	  	       zjhm,
+       	  	       zy,
+       	  	       xzz,
+       	  	       dwmc,
+       	  	       dwdz,
+       	  	       dwdh,
+       	  	       dwyb,
+       	  	       lxr,
+       	  	       gx,
+       	  	       lxrdz,
+       	  	       lxrdh,
+       	  	       yblx,
+       	  	       tsrylx,
+       	  	       cbddm,
+       	  	       xserylx,
+       	  	       xsecstz,
+       	  	       xserytz,
+       	  	       createtime,
+       	  	    	  updatetime
+       	    )
+    values (
+	  	  	      	#{id,jdbcType=BIGINT},
+       	  	      	#{ybbm,jdbcType=VARCHAR},
+       	  	      	#{babm,jdbcType=VARCHAR},
+       	  	      	#{xm,jdbcType=VARCHAR},
+       	  	      	#{xb,jdbcType=INTEGER},
+       	  	      	#{csrq,jdbcType=TIMESTAMP},
+       	  	      	#{nl,jdbcType=INTEGER},
+       	  	      	#{gj,jdbcType=VARCHAR},
+       	  	      	#{bzzsnl,jdbcType=VARCHAR},
+       	  	      	#{mz,jdbcType=INTEGER},
+       	  	      	#{zjlb,jdbcType=VARCHAR},
+       	  	      	#{zjhm,jdbcType=VARCHAR},
+       	  	      	#{zy,jdbcType=VARCHAR},
+       	  	      	#{xzz,jdbcType=VARCHAR},
+       	  	      	#{dwmc,jdbcType=VARCHAR},
+       	  	      	#{dwdz,jdbcType=VARCHAR},
+       	  	      	#{dwdh,jdbcType=VARCHAR},
+       	  	      	#{dwyb,jdbcType=VARCHAR},
+       	  	      	#{lxr,jdbcType=VARCHAR},
+       	  	      	#{gx,jdbcType=VARCHAR},
+       	  	      	#{lxrdz,jdbcType=VARCHAR},
+       	  	      	#{lxrdh,jdbcType=VARCHAR},
+       	  	      	#{yblx,jdbcType=VARCHAR},
+       	  	      	#{tsrylx,jdbcType=VARCHAR},
+       	  	      	#{cbddm,jdbcType=VARCHAR},
+       	  	      	#{xserylx,jdbcType=VARCHAR},
+       	  	      	#{xsecstz,jdbcType=VARCHAR},
+       	  	      	#{xserytz,jdbcType=VARCHAR},
+       	  	      	#{createtime,jdbcType=TIMESTAMP},
+       	  	    	  #{updatetime,jdbcType=TIMESTAMP}
+       	    )
+  </insert>
+  
+  <insert id="insertSelective" parameterType="com.fc.test.model.auto.Patienbase">
+    insert into patient_base
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+          
+      <if test="id != null">
+        id,
+      </if>
+      
+         
+      <if test="ybbm != null">
+        ybbm,
+      </if>
+      
+         
+      <if test="babm != null">
+        babm,
+      </if>
+      
+         
+      <if test="xm != null">
+        xm,
+      </if>
+      
+         
+      <if test="xb != null">
+        xb,
+      </if>
+      
+         
+      <if test="csrq != null">
+        csrq,
+      </if>
+      
+         
+      <if test="nl != null">
+        nl,
+      </if>
+      
+         
+      <if test="gj != null">
+        gj,
+      </if>
+      
+         
+      <if test="bzzsnl != null">
+        bzzsnl,
+      </if>
+      
+         
+      <if test="mz != null">
+        mz,
+      </if>
+      
+         
+      <if test="zjlb != null">
+        zjlb,
+      </if>
+      
+         
+      <if test="zjhm != null">
+        zjhm,
+      </if>
+      
+         
+      <if test="zy != null">
+        zy,
+      </if>
+      
+         
+      <if test="xzz != null">
+        xzz,
+      </if>
+      
+         
+      <if test="dwmc != null">
+        dwmc,
+      </if>
+      
+         
+      <if test="dwdz != null">
+        dwdz,
+      </if>
+      
+         
+      <if test="dwdh != null">
+        dwdh,
+      </if>
+      
+         
+      <if test="dwyb != null">
+        dwyb,
+      </if>
+      
+         
+      <if test="lxr != null">
+        lxr,
+      </if>
+      
+         
+      <if test="gx != null">
+        gx,
+      </if>
+      
+         
+      <if test="lxrdz != null">
+        lxrdz,
+      </if>
+      
+         
+      <if test="lxrdh != null">
+        lxrdh,
+      </if>
+      
+         
+      <if test="yblx != null">
+        yblx,
+      </if>
+      
+         
+      <if test="tsrylx != null">
+        tsrylx,
+      </if>
+      
+         
+      <if test="cbddm != null">
+        cbddm,
+      </if>
+      
+         
+      <if test="xserylx != null">
+        xserylx,
+      </if>
+      
+         
+      <if test="xsecstz != null">
+        xsecstz,
+      </if>
+      
+         
+      <if test="xserytz != null">
+        xserytz,
+      </if>
+      
+         
+      <if test="createtime != null">
+        createtime,
+      </if>
+      
+         
+      <if test="updatetime != null">
+        updatetime,
+      </if>
+      
+         </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+          <if test="id != null">
+        #{id,jdbcType=BIGINT},
+      </if>
+          <if test="ybbm != null">
+        #{ybbm,jdbcType=VARCHAR},
+      </if>
+          <if test="babm != null">
+        #{babm,jdbcType=VARCHAR},
+      </if>
+          <if test="xm != null">
+        #{xm,jdbcType=VARCHAR},
+      </if>
+          <if test="xb != null">
+        #{xb,jdbcType=INTEGER},
+      </if>
+          <if test="csrq != null">
+        #{csrq,jdbcType=TIMESTAMP},
+      </if>
+          <if test="nl != null">
+        #{nl,jdbcType=INTEGER},
+      </if>
+          <if test="gj != null">
+        #{gj,jdbcType=VARCHAR},
+      </if>
+          <if test="bzzsnl != null">
+        #{bzzsnl,jdbcType=VARCHAR},
+      </if>
+          <if test="mz != null">
+        #{mz,jdbcType=INTEGER},
+      </if>
+          <if test="zjlb != null">
+        #{zjlb,jdbcType=VARCHAR},
+      </if>
+          <if test="zjhm != null">
+        #{zjhm,jdbcType=VARCHAR},
+      </if>
+          <if test="zy != null">
+        #{zy,jdbcType=VARCHAR},
+      </if>
+          <if test="xzz != null">
+        #{xzz,jdbcType=VARCHAR},
+      </if>
+          <if test="dwmc != null">
+        #{dwmc,jdbcType=VARCHAR},
+      </if>
+          <if test="dwdz != null">
+        #{dwdz,jdbcType=VARCHAR},
+      </if>
+          <if test="dwdh != null">
+        #{dwdh,jdbcType=VARCHAR},
+      </if>
+          <if test="dwyb != null">
+        #{dwyb,jdbcType=VARCHAR},
+      </if>
+          <if test="lxr != null">
+        #{lxr,jdbcType=VARCHAR},
+      </if>
+          <if test="gx != null">
+        #{gx,jdbcType=VARCHAR},
+      </if>
+          <if test="lxrdz != null">
+        #{lxrdz,jdbcType=VARCHAR},
+      </if>
+          <if test="lxrdh != null">
+        #{lxrdh,jdbcType=VARCHAR},
+      </if>
+          <if test="yblx != null">
+        #{yblx,jdbcType=VARCHAR},
+      </if>
+          <if test="tsrylx != null">
+        #{tsrylx,jdbcType=VARCHAR},
+      </if>
+          <if test="cbddm != null">
+        #{cbddm,jdbcType=VARCHAR},
+      </if>
+          <if test="xserylx != null">
+        #{xserylx,jdbcType=VARCHAR},
+      </if>
+          <if test="xsecstz != null">
+        #{xsecstz,jdbcType=VARCHAR},
+      </if>
+          <if test="xserytz != null">
+        #{xserytz,jdbcType=VARCHAR},
+      </if>
+          <if test="createtime != null">
+        #{createtime,jdbcType=TIMESTAMP},
+      </if>
+          <if test="updatetime != null">
+        #{updatetime,jdbcType=TIMESTAMP},
+      </if>
+        </trim>
+  </insert>
+  
+  <select id="countByExample" parameterType="com.fc.test.model.auto.PatienbaseExample" resultType="java.lang.Long">
+    select count(*) from patient_base
+    <if test="_parameter != null">
+      <include refid="Example_Where_Clause" />
+    </if>
+  </select>
+  
+  <update id="updateByExampleSelective" parameterType="map">
+    update patient_base
+    <set>
+          <if test="record.id != null">
+        id = #{record.id,jdbcType=BIGINT},
+      </if>
+          <if test="record.ybbm != null">
+        ybbm = #{record.ybbm,jdbcType=VARCHAR},
+      </if>
+          <if test="record.babm != null">
+        babm = #{record.babm,jdbcType=VARCHAR},
+      </if>
+          <if test="record.xm != null">
+        xm = #{record.xm,jdbcType=VARCHAR},
+      </if>
+          <if test="record.xb != null">
+        xb = #{record.xb,jdbcType=INTEGER},
+      </if>
+          <if test="record.csrq != null">
+        csrq = #{record.csrq,jdbcType=TIMESTAMP},
+      </if>
+          <if test="record.nl != null">
+        nl = #{record.nl,jdbcType=INTEGER},
+      </if>
+          <if test="record.gj != null">
+        gj = #{record.gj,jdbcType=VARCHAR},
+      </if>
+          <if test="record.bzzsnl != null">
+        bzzsnl = #{record.bzzsnl,jdbcType=VARCHAR},
+      </if>
+          <if test="record.mz != null">
+        mz = #{record.mz,jdbcType=INTEGER},
+      </if>
+          <if test="record.zjlb != null">
+        zjlb = #{record.zjlb,jdbcType=VARCHAR},
+      </if>
+          <if test="record.zjhm != null">
+        zjhm = #{record.zjhm,jdbcType=VARCHAR},
+      </if>
+          <if test="record.zy != null">
+        zy = #{record.zy,jdbcType=VARCHAR},
+      </if>
+          <if test="record.xzz != null">
+        xzz = #{record.xzz,jdbcType=VARCHAR},
+      </if>
+          <if test="record.dwmc != null">
+        dwmc = #{record.dwmc,jdbcType=VARCHAR},
+      </if>
+          <if test="record.dwdz != null">
+        dwdz = #{record.dwdz,jdbcType=VARCHAR},
+      </if>
+          <if test="record.dwdh != null">
+        dwdh = #{record.dwdh,jdbcType=VARCHAR},
+      </if>
+          <if test="record.dwyb != null">
+        dwyb = #{record.dwyb,jdbcType=VARCHAR},
+      </if>
+          <if test="record.lxr != null">
+        lxr = #{record.lxr,jdbcType=VARCHAR},
+      </if>
+          <if test="record.gx != null">
+        gx = #{record.gx,jdbcType=VARCHAR},
+      </if>
+          <if test="record.lxrdz != null">
+        lxrdz = #{record.lxrdz,jdbcType=VARCHAR},
+      </if>
+          <if test="record.lxrdh != null">
+        lxrdh = #{record.lxrdh,jdbcType=VARCHAR},
+      </if>
+          <if test="record.yblx != null">
+        yblx = #{record.yblx,jdbcType=VARCHAR},
+      </if>
+          <if test="record.tsrylx != null">
+        tsrylx = #{record.tsrylx,jdbcType=VARCHAR},
+      </if>
+          <if test="record.cbddm != null">
+        cbddm = #{record.cbddm,jdbcType=VARCHAR},
+      </if>
+          <if test="record.xserylx != null">
+        xserylx = #{record.xserylx,jdbcType=VARCHAR},
+      </if>
+          <if test="record.xsecstz != null">
+        xsecstz = #{record.xsecstz,jdbcType=VARCHAR},
+      </if>
+          <if test="record.xserytz != null">
+        xserytz = #{record.xserytz,jdbcType=VARCHAR},
+      </if>
+          <if test="record.createtime != null">
+        createtime = #{record.createtime,jdbcType=TIMESTAMP},
+      </if>
+          <if test="record.updatetime != null">
+        updatetime = #{record.updatetime,jdbcType=TIMESTAMP},
+      </if>
+         
+    </set>
+    <if test="_parameter != null">
+      <include refid="Update_By_Example_Where_Clause" />
+    </if>
+  </update>
+  
+  
+  <update id="updateByExample" parameterType="map">
+    update patient_base
+    set
+            	     	 id = #{record.id,jdbcType=BIGINT},
+    	         	     	 ybbm = #{record.ybbm,jdbcType=VARCHAR},
+    	         	     	 babm = #{record.babm,jdbcType=VARCHAR},
+    	         	     	 xm = #{record.xm,jdbcType=VARCHAR},
+    	         	     	 xb = #{record.xb,jdbcType=INTEGER},
+    	         	     	 csrq = #{record.csrq,jdbcType=TIMESTAMP},
+    	         	     	 nl = #{record.nl,jdbcType=INTEGER},
+    	         	     	 gj = #{record.gj,jdbcType=VARCHAR},
+    	         	     	 bzzsnl = #{record.bzzsnl,jdbcType=VARCHAR},
+    	         	     	 mz = #{record.mz,jdbcType=INTEGER},
+    	         	     	 zjlb = #{record.zjlb,jdbcType=VARCHAR},
+    	         	     	 zjhm = #{record.zjhm,jdbcType=VARCHAR},
+    	         	     	 zy = #{record.zy,jdbcType=VARCHAR},
+    	         	     	 xzz = #{record.xzz,jdbcType=VARCHAR},
+    	         	     	 dwmc = #{record.dwmc,jdbcType=VARCHAR},
+    	         	     	 dwdz = #{record.dwdz,jdbcType=VARCHAR},
+    	         	     	 dwdh = #{record.dwdh,jdbcType=VARCHAR},
+    	         	     	 dwyb = #{record.dwyb,jdbcType=VARCHAR},
+    	         	     	 lxr = #{record.lxr,jdbcType=VARCHAR},
+    	         	     	 gx = #{record.gx,jdbcType=VARCHAR},
+    	         	     	 lxrdz = #{record.lxrdz,jdbcType=VARCHAR},
+    	         	     	 lxrdh = #{record.lxrdh,jdbcType=VARCHAR},
+    	         	     	 yblx = #{record.yblx,jdbcType=VARCHAR},
+    	         	     	 tsrylx = #{record.tsrylx,jdbcType=VARCHAR},
+    	         	     	 cbddm = #{record.cbddm,jdbcType=VARCHAR},
+    	         	     	 xserylx = #{record.xserylx,jdbcType=VARCHAR},
+    	         	     	 xsecstz = #{record.xsecstz,jdbcType=VARCHAR},
+    	         	     	 xserytz = #{record.xserytz,jdbcType=VARCHAR},
+    	         	     	 createtime = #{record.createtime,jdbcType=TIMESTAMP},
+    	         	     	 updatetime = #{record.updatetime,jdbcType=TIMESTAMP}
+    	         <if test="_parameter != null">
+      <include refid="Update_By_Example_Where_Clause" />
+    </if>
+  </update>
+  
+  
+      <update id="updateByPrimaryKeySelective" parameterType="com.fc.test.model.auto.Patienbase">
+    update patient_base
+    <set>
+                          <if test="ybbm != null">
+        ybbm = #{ybbm,jdbcType=VARCHAR},
+      </if>
+                      <if test="babm != null">
+        babm = #{babm,jdbcType=VARCHAR},
+      </if>
+                      <if test="xm != null">
+        xm = #{xm,jdbcType=VARCHAR},
+      </if>
+                      <if test="xb != null">
+        xb = #{xb,jdbcType=INTEGER},
+      </if>
+                      <if test="csrq != null">
+        csrq = #{csrq,jdbcType=TIMESTAMP},
+      </if>
+                      <if test="nl != null">
+        nl = #{nl,jdbcType=INTEGER},
+      </if>
+                      <if test="gj != null">
+        gj = #{gj,jdbcType=VARCHAR},
+      </if>
+                      <if test="bzzsnl != null">
+        bzzsnl = #{bzzsnl,jdbcType=VARCHAR},
+      </if>
+                      <if test="mz != null">
+        mz = #{mz,jdbcType=INTEGER},
+      </if>
+                      <if test="zjlb != null">
+        zjlb = #{zjlb,jdbcType=VARCHAR},
+      </if>
+                      <if test="zjhm != null">
+        zjhm = #{zjhm,jdbcType=VARCHAR},
+      </if>
+                      <if test="zy != null">
+        zy = #{zy,jdbcType=VARCHAR},
+      </if>
+                      <if test="xzz != null">
+        xzz = #{xzz,jdbcType=VARCHAR},
+      </if>
+                      <if test="dwmc != null">
+        dwmc = #{dwmc,jdbcType=VARCHAR},
+      </if>
+                      <if test="dwdz != null">
+        dwdz = #{dwdz,jdbcType=VARCHAR},
+      </if>
+                      <if test="dwdh != null">
+        dwdh = #{dwdh,jdbcType=VARCHAR},
+      </if>
+                      <if test="dwyb != null">
+        dwyb = #{dwyb,jdbcType=VARCHAR},
+      </if>
+                      <if test="lxr != null">
+        lxr = #{lxr,jdbcType=VARCHAR},
+      </if>
+                      <if test="gx != null">
+        gx = #{gx,jdbcType=VARCHAR},
+      </if>
+                      <if test="lxrdz != null">
+        lxrdz = #{lxrdz,jdbcType=VARCHAR},
+      </if>
+                      <if test="lxrdh != null">
+        lxrdh = #{lxrdh,jdbcType=VARCHAR},
+      </if>
+                      <if test="yblx != null">
+        yblx = #{yblx,jdbcType=VARCHAR},
+      </if>
+                      <if test="tsrylx != null">
+        tsrylx = #{tsrylx,jdbcType=VARCHAR},
+      </if>
+                      <if test="cbddm != null">
+        cbddm = #{cbddm,jdbcType=VARCHAR},
+      </if>
+                      <if test="xserylx != null">
+        xserylx = #{xserylx,jdbcType=VARCHAR},
+      </if>
+                      <if test="xsecstz != null">
+        xsecstz = #{xsecstz,jdbcType=VARCHAR},
+      </if>
+                      <if test="xserytz != null">
+        xserytz = #{xserytz,jdbcType=VARCHAR},
+      </if>
+                      <if test="createtime != null">
+        createtime = #{createtime,jdbcType=TIMESTAMP},
+      </if>
+                      <if test="updatetime != null">
+        updatetime = #{updatetime,jdbcType=TIMESTAMP},
+      </if>
+              </set>
+    where 
+            id = #{id,jdbcType=BIGINT}
+                                                                                                                                                                                                                                                  
+  </update>
+
+      	      	   	      	   	      	   	      	   	      	   	      	   	      	   	      	   	      	   	      	   	      	   	      	   	      	   	      	   	      	   	      	   	      	   	      	   	      	   	      	   	      	   	      	   	      	   	      	   	      	   	      	   	      	   	      	   	      	   	      	
+
+  <update id="updateByPrimaryKey" parameterType="com.fc.test.model.auto.Patienbase">
+    update patient_base
+    set 
+             	        	    	 			ybbm = #{ybbm,jdbcType=VARCHAR},
+		     	        	    	 			babm = #{babm,jdbcType=VARCHAR},
+		     	        	    	 			xm = #{xm,jdbcType=VARCHAR},
+		     	        	    	 			xb = #{xb,jdbcType=INTEGER},
+		     	        	    	 			csrq = #{csrq,jdbcType=TIMESTAMP},
+		     	        	    	 			nl = #{nl,jdbcType=INTEGER},
+		     	        	    	 			gj = #{gj,jdbcType=VARCHAR},
+		     	        	    	 			bzzsnl = #{bzzsnl,jdbcType=VARCHAR},
+		     	        	    	 			mz = #{mz,jdbcType=INTEGER},
+		     	        	    	 			zjlb = #{zjlb,jdbcType=VARCHAR},
+		     	        	    	 			zjhm = #{zjhm,jdbcType=VARCHAR},
+		     	        	    	 			zy = #{zy,jdbcType=VARCHAR},
+		     	        	    	 			xzz = #{xzz,jdbcType=VARCHAR},
+		     	        	    	 			dwmc = #{dwmc,jdbcType=VARCHAR},
+		     	        	    	 			dwdz = #{dwdz,jdbcType=VARCHAR},
+		     	        	    	 			dwdh = #{dwdh,jdbcType=VARCHAR},
+		     	        	    	 			dwyb = #{dwyb,jdbcType=VARCHAR},
+		     	        	    	 			lxr = #{lxr,jdbcType=VARCHAR},
+		     	        	    	 			gx = #{gx,jdbcType=VARCHAR},
+		     	        	    	 			lxrdz = #{lxrdz,jdbcType=VARCHAR},
+		     	        	    	 			lxrdh = #{lxrdh,jdbcType=VARCHAR},
+		     	        	    	 			yblx = #{yblx,jdbcType=VARCHAR},
+		     	        	    	 			tsrylx = #{tsrylx,jdbcType=VARCHAR},
+		     	        	    	 			cbddm = #{cbddm,jdbcType=VARCHAR},
+		     	        	    	 			xserylx = #{xserylx,jdbcType=VARCHAR},
+		     	        	    	 			xsecstz = #{xsecstz,jdbcType=VARCHAR},
+		     	        	    	 			xserytz = #{xserytz,jdbcType=VARCHAR},
+		     	        	    	 			createtime = #{createtime,jdbcType=TIMESTAMP},
+		     	        	    	 			updatetime = #{updatetime,jdbcType=TIMESTAMP}
+		     	        where 
+            id = #{id,jdbcType=BIGINT}
+                                                                                                                                                                                                                                                    
+  </update>
+  
+                                                                                                                                                          
+</mapper>

@@ -1,0 +1,296 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.fc.test.mapper.auto.ZdlbMapper">
+  <resultMap id="BaseResultMap" type="com.fc.test.model.auto.Zdlb">
+    <result column="id" jdbcType="BIGINT" property="id" />
+    <result column="ybbm" jdbcType="VARCHAR" property="ybbm" />
+    <result column="babm" jdbcType="VARCHAR" property="babm" />
+    <result column="zdmc" jdbcType="VARCHAR" property="zdmc" />
+    <result column="zddm" jdbcType="VARCHAR" property="zddm" />
+    <result column="ssczmc" jdbcType="VARCHAR" property="ssczmc" />
+    <result column="ssczdm" jdbcType="VARCHAR" property="ssczdm" />
+  </resultMap>
+  <sql id="Example_Where_Clause">
+    <where>
+      <foreach collection="oredCriteria" item="criteria" separator="or">
+        <if test="criteria.valid">
+          <trim prefix="(" prefixOverrides="and" suffix=")">
+            <foreach collection="criteria.criteria" item="criterion">
+              <choose>
+                <when test="criterion.noValue">
+                  and ${criterion.condition}
+                </when>
+                <when test="criterion.singleValue">
+                  and ${criterion.condition} #{criterion.value}
+                </when>
+                <when test="criterion.betweenValue">
+                  and ${criterion.condition} #{criterion.value} and #{criterion.secondValue}
+                </when>
+                <when test="criterion.listValue">
+                  and ${criterion.condition}
+                  <foreach close=")" collection="criterion.value" item="listItem" open="(" separator=",">
+                    #{listItem}
+                  </foreach>
+                </when>
+              </choose>
+            </foreach>
+          </trim>
+        </if>
+      </foreach>
+    </where>
+  </sql>
+  <sql id="Update_By_Example_Where_Clause">
+    <where>
+      <foreach collection="example.oredCriteria" item="criteria" separator="or">
+        <if test="criteria.valid">
+          <trim prefix="(" prefixOverrides="and" suffix=")">
+            <foreach collection="criteria.criteria" item="criterion">
+              <choose>
+                <when test="criterion.noValue">
+                  and ${criterion.condition}
+                </when>
+                <when test="criterion.singleValue">
+                  and ${criterion.condition} #{criterion.value}
+                </when>
+                <when test="criterion.betweenValue">
+                  and ${criterion.condition} #{criterion.value} and #{criterion.secondValue}
+                </when>
+                <when test="criterion.listValue">
+                  and ${criterion.condition}
+                  <foreach close=")" collection="criterion.value" item="listItem" open="(" separator=",">
+                    #{listItem}
+                  </foreach>
+                </when>
+              </choose>
+            </foreach>
+          </trim>
+        </if>
+      </foreach>
+    </where>
+  </sql>
+<sql id="Base_Column_List">
+	  	  	      	id,
+       	  	      	ybbm,
+       	  	      	babm,
+       	  	      	zdmc,
+       	  	      	zddm,
+       	  	      	ssczmc,
+       	  	    	  	ssczdm
+       	</sql>
+  <select id="selectByExample" parameterType="com.fc.test.model.auto.ZdlbExample" resultMap="BaseResultMap">
+    select
+    <if test="distinct">
+      distinct
+    </if>
+    <include refid="Base_Column_List" />
+    from zdlb
+    <if test="_parameter != null">
+      <include refid="Example_Where_Clause" />
+    </if>
+    <if test="orderByClause != null">
+      order by ${orderByClause}
+    </if>
+  </select>
+  <select id="selectByPrimaryKey" parameterType="java.lang.Long" resultMap="BaseResultMap">
+    select 
+    <include refid="Base_Column_List" />
+    from zdlb
+    where id = #{id,jdbcType=BIGINT}
+  </select>
+
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Long">
+    delete from zdlb
+    where id = #{id,jdbcType=BIGINT}
+  </delete>
+  <delete id="deleteByExample" parameterType="com.fc.test.model.auto.ZdlbExample">
+    delete from zdlb
+    <if test="_parameter != null">
+      <include refid="Example_Where_Clause" />
+    </if>
+  </delete>
+  
+  <insert id="insert" parameterType="com.fc.test.model.auto.Zdlb">
+    insert into zdlb (
+      	  	       id,
+       	  	       ybbm,
+       	  	       babm,
+       	  	       zdmc,
+       	  	       zddm,
+       	  	       ssczmc,
+       	  	    	  ssczdm
+       	    )
+    values (
+	  	  	      	#{id,jdbcType=BIGINT},
+       	  	      	#{ybbm,jdbcType=VARCHAR},
+       	  	      	#{babm,jdbcType=VARCHAR},
+       	  	      	#{zdmc,jdbcType=VARCHAR},
+       	  	      	#{zddm,jdbcType=VARCHAR},
+       	  	      	#{ssczmc,jdbcType=VARCHAR},
+       	  	    	  #{ssczdm,jdbcType=VARCHAR}
+       	    )
+  </insert>
+  
+  <insert id="insertSelective" parameterType="com.fc.test.model.auto.Zdlb">
+    insert into zdlb
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+          
+      <if test="id != null">
+        id,
+      </if>
+      
+         
+      <if test="ybbm != null">
+        ybbm,
+      </if>
+      
+         
+      <if test="babm != null">
+        babm,
+      </if>
+      
+         
+      <if test="zdmc != null">
+        zdmc,
+      </if>
+      
+         
+      <if test="zddm != null">
+        zddm,
+      </if>
+      
+         
+      <if test="ssczmc != null">
+        ssczmc,
+      </if>
+      
+         
+      <if test="ssczdm != null">
+        ssczdm,
+      </if>
+      
+         </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+          <if test="id != null">
+        #{id,jdbcType=BIGINT},
+      </if>
+          <if test="ybbm != null">
+        #{ybbm,jdbcType=VARCHAR},
+      </if>
+          <if test="babm != null">
+        #{babm,jdbcType=VARCHAR},
+      </if>
+          <if test="zdmc != null">
+        #{zdmc,jdbcType=VARCHAR},
+      </if>
+          <if test="zddm != null">
+        #{zddm,jdbcType=VARCHAR},
+      </if>
+          <if test="ssczmc != null">
+        #{ssczmc,jdbcType=VARCHAR},
+      </if>
+          <if test="ssczdm != null">
+        #{ssczdm,jdbcType=VARCHAR},
+      </if>
+        </trim>
+  </insert>
+  
+  <select id="countByExample" parameterType="com.fc.test.model.auto.ZdlbExample" resultType="java.lang.Long">
+    select count(*) from zdlb
+    <if test="_parameter != null">
+      <include refid="Example_Where_Clause" />
+    </if>
+  </select>
+  
+  <update id="updateByExampleSelective" parameterType="map">
+    update zdlb
+    <set>
+          <if test="record.id != null">
+        id = #{record.id,jdbcType=BIGINT},
+      </if>
+          <if test="record.ybbm != null">
+        ybbm = #{record.ybbm,jdbcType=VARCHAR},
+      </if>
+          <if test="record.babm != null">
+        babm = #{record.babm,jdbcType=VARCHAR},
+      </if>
+          <if test="record.zdmc != null">
+        zdmc = #{record.zdmc,jdbcType=VARCHAR},
+      </if>
+          <if test="record.zddm != null">
+        zddm = #{record.zddm,jdbcType=VARCHAR},
+      </if>
+          <if test="record.ssczmc != null">
+        ssczmc = #{record.ssczmc,jdbcType=VARCHAR},
+      </if>
+          <if test="record.ssczdm != null">
+        ssczdm = #{record.ssczdm,jdbcType=VARCHAR},
+      </if>
+         
+    </set>
+    <if test="_parameter != null">
+      <include refid="Update_By_Example_Where_Clause" />
+    </if>
+  </update>
+  
+  
+  <update id="updateByExample" parameterType="map">
+    update zdlb
+    set
+            	     	 id = #{record.id,jdbcType=BIGINT},
+    	         	     	 ybbm = #{record.ybbm,jdbcType=VARCHAR},
+    	         	     	 babm = #{record.babm,jdbcType=VARCHAR},
+    	         	     	 zdmc = #{record.zdmc,jdbcType=VARCHAR},
+    	         	     	 zddm = #{record.zddm,jdbcType=VARCHAR},
+    	         	     	 ssczmc = #{record.ssczmc,jdbcType=VARCHAR},
+    	         	     	 ssczdm = #{record.ssczdm,jdbcType=VARCHAR}
+    	         <if test="_parameter != null">
+      <include refid="Update_By_Example_Where_Clause" />
+    </if>
+  </update>
+  
+  
+      <update id="updateByPrimaryKeySelective" parameterType="com.fc.test.model.auto.Zdlb">
+    update zdlb
+    <set>
+                          <if test="ybbm != null">
+        ybbm = #{ybbm,jdbcType=VARCHAR},
+      </if>
+                      <if test="babm != null">
+        babm = #{babm,jdbcType=VARCHAR},
+      </if>
+                      <if test="zdmc != null">
+        zdmc = #{zdmc,jdbcType=VARCHAR},
+      </if>
+                      <if test="zddm != null">
+        zddm = #{zddm,jdbcType=VARCHAR},
+      </if>
+                      <if test="ssczmc != null">
+        ssczmc = #{ssczmc,jdbcType=VARCHAR},
+      </if>
+                      <if test="ssczdm != null">
+        ssczdm = #{ssczdm,jdbcType=VARCHAR},
+      </if>
+              </set>
+    where 
+            id = #{id,jdbcType=BIGINT}
+                                                          
+  </update>
+
+      	      	   	      	   	      	   	      	   	      	   	      	   	      	
+
+  <update id="updateByPrimaryKey" parameterType="com.fc.test.model.auto.Zdlb">
+    update zdlb
+    set 
+             	        	    	 			ybbm = #{ybbm,jdbcType=VARCHAR},
+		     	        	    	 			babm = #{babm,jdbcType=VARCHAR},
+		     	        	    	 			zdmc = #{zdmc,jdbcType=VARCHAR},
+		     	        	    	 			zddm = #{zddm,jdbcType=VARCHAR},
+		     	        	    	 			ssczmc = #{ssczmc,jdbcType=VARCHAR},
+		     	        	    	 			ssczdm = #{ssczdm,jdbcType=VARCHAR}
+		     	        where 
+            id = #{id,jdbcType=BIGINT}
+                                                            
+  </update>
+  
+                                       
+</mapper>
