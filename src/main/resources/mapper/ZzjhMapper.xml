@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
-<mapper namespace="com.fc.test.mapper.auto.ZzjhMapper">
-  <resultMap id="BaseResultMap" type="com.fc.test.model.auto.Zzjh">
+<mapper namespace="com.company.project.dao.ZzjhMapper">
+  <resultMap id="BaseResultMap" type="com.company.project.model.Zzjh">
     <result column="id" jdbcType="BIGINT" property="id" />
     <result column="ybbm" jdbcType="VARCHAR" property="ybbm" />
     <result column="babm" jdbcType="VARCHAR" property="babm" />
@@ -38,7 +38,7 @@
       </foreach>
     </where>
   </sql>
-  <sql id="Update_By_Example_Where_Clause">
+  <!-- <sql id="Update_By_Example_Where_Clause">
     <where>
       <foreach collection="example.oredCriteria" item="criteria" separator="or">
         <if test="criteria.valid">
@@ -75,7 +75,7 @@
        	  	      	jrsj,
        	  	    	  	clsj
        	</sql>
-  <select id="selectByExample" parameterType="com.fc.test.model.auto.ZzjhExample" resultMap="BaseResultMap">
+  <select id="selectByExample" parameterType="" resultMap="BaseResultMap">
     select
     <if test="distinct">
       distinct
@@ -100,14 +100,14 @@
     delete from zzjh
     where id = #{id,jdbcType=BIGINT}
   </delete>
-  <delete id="deleteByExample" parameterType="com.fc.test.model.auto.ZzjhExample">
+  <delete id="deleteByExample" parameterType="">
     delete from zzjh
     <if test="_parameter != null">
       <include refid="Example_Where_Clause" />
     </if>
   </delete>
   
-  <insert id="insert" parameterType="com.fc.test.model.auto.Zzjh">
+  <insert id="insert" parameterType="">
     insert into zzjh (
       	  	       id,
        	  	       ybbm,
@@ -126,7 +126,7 @@
        	    )
   </insert>
   
-  <insert id="insertSelective" parameterType="com.fc.test.model.auto.Zzjh">
+  <insert id="insertSelective" parameterType="">
     insert into zzjh
     <trim prefix="(" suffix=")" suffixOverrides=",">
           
@@ -182,7 +182,7 @@
         </trim>
   </insert>
   
-  <select id="countByExample" parameterType="com.fc.test.model.auto.ZzjhExample" resultType="java.lang.Long">
+  <select id="countByExample" parameterType="" resultType="java.lang.Long">
     select count(*) from zzjh
     <if test="_parameter != null">
       <include refid="Example_Where_Clause" />
@@ -233,7 +233,7 @@
   </update>
   
   
-      <update id="updateByPrimaryKeySelective" parameterType="com.fc.test.model.auto.Zzjh">
+      <update id="updateByPrimaryKeySelective" parameterType="">
     update zzjh
     <set>
                           <if test="ybbm != null">
@@ -259,7 +259,7 @@
 
       	      	   	      	   	      	   	      	   	      	   	      	
 
-  <update id="updateByPrimaryKey" parameterType="com.fc.test.model.auto.Zzjh">
+  <update id="updateByPrimaryKey" parameterType="">
     update zzjh
     set 
              	        	    	 			ybbm = #{ybbm,jdbcType=VARCHAR},
@@ -270,7 +270,7 @@
 		     	        where 
             id = #{id,jdbcType=BIGINT}
                                                     
-  </update>
+  </update> -->
   
                                   
 </mapper>

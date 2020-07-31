@@ -2,6 +2,7 @@ package com.company.project.model;
 
 import java.io.Serializable;
 
+
 import java.lang.Long;
 import java.util.Date;
 import com.fasterxml.jackson.annotation.JsonFormat;
@@ -10,9 +11,8 @@ import java.lang.Integer;
 /**
  *  MedicCharge 
  * @author SWJ
- * @date 2020-07-29 10:21:37
+ * @date 2020-07-30 16:46:21
  */
-
 public class MedicCharge implements Serializable {
 
 	private static final long serialVersionUID = 1L;
@@ -36,22 +36,27 @@ public class MedicCharge implements Serializable {
 		
 	/** 结算结束时间 **/
 	@JsonFormat(pattern = "yyyy-MM-dd HH:mm:ss",timezone="GMT+8")
-
 	private Date jsqjjsrq;
 		
 	/** 医保支付方式 **/
-
 	private Integer ybzffs;
 		
 	/** 创建时间 **/
 	@JsonFormat(pattern = "yyyy-MM-dd HH:mm:ss",timezone="GMT+8")
-
 	private Date createtime;
 		
 	/** 更新时间 **/
 	@JsonFormat(pattern = "yyyy-MM-dd HH:mm:ss",timezone="GMT+8")
-
 	private Date updatetime;
+		
+	/**  **/
+	private String jyxmlb;
+		
+	/**  **/
+	private String jjzf;
+		
+	/**  **/
+	private String grzf;
 		
 		
 	public Long getId() {
@@ -135,12 +140,39 @@ public class MedicCharge implements Serializable {
     }
 	 
 			
+	public String getJyxmlb() {
+        return jyxmlb;
+    }
+
+    public void setJyxmlb(String jyxmlb) {
+        this.jyxmlb = jyxmlb;
+    }
+	 
+			
+	public String getJjzf() {
+        return jjzf;
+    }
+
+    public void setJjzf(String jjzf) {
+        this.jjzf = jjzf;
+    }
+	 
+			
+	public String getGrzf() {
+        return grzf;
+    }
+
+    public void setGrzf(String grzf) {
+        this.grzf = grzf;
+    }
+	 
+			
 	public MedicCharge() {
         super();
     }
     
-																																															
-	public MedicCharge(Long id,String ybbm,String babm,String ywlsh,Date jsqjksrq,Date jsqjjsrq,Integer ybzffs,Date createtime,Date updatetime) {
+																																																														
+	public MedicCharge(Long id,String ybbm,String babm,String ywlsh,Date jsqjksrq,Date jsqjjsrq,Integer ybzffs,Date createtime,Date updatetime,String jyxmlb,String jjzf,String grzf) {
 	
 		this.id = id;
 		this.ybbm = ybbm;
@@ -151,6 +183,9 @@ public class MedicCharge implements Serializable {
 		this.ybzffs = ybzffs;
 		this.createtime = createtime;
 		this.updatetime = updatetime;
+		this.jyxmlb = jyxmlb;
+		this.jjzf = jjzf;
+		this.grzf = grzf;
 		
 	}
 	

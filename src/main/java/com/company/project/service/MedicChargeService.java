@@ -19,16 +19,15 @@ import com.github.pagehelper.PageInfo;
 /**
  *  MedicChargeService
  * @Title: MedicChargeService.java 
- * @Package com.fc.test.service 
  * @author SWJ
- * @date 2020-07-29 10:21:37  
+ * @date 2020-07-30 16:46:21  
  **/
 @Service
 public class MedicChargeService implements BaseService<MedicCharge, MedicChargeExample>{
 	@Autowired
 	private MedicChargeMapper medicChargeMapper;
 	
-      	   	      	      	      	      	      	      	      	      	      	
+      	   	      	      	      	      	      	      	      	      	      	      	      	      	
 	/**
 	 * 分页查询
 	 * @param pageNum

@@ -11,20 +11,17 @@ import java.lang.Integer;
 /**
  *  Patienbase 
  * @author SWJ
- * @date 2020-07-29 10:21:58
+ * @date 2020-07-30 16:46:33
  */
-
 public class Patienbase implements Serializable {
 
 	private static final long serialVersionUID = 1L;
 	
 		
 	/**  **/
-
 	private Long id;
 		
 	/** 医保编号 **/
-
 	private String ybbm;
 		
 	/** 病案号 **/

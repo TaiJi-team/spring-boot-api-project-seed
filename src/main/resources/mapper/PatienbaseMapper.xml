@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
-<mapper namespace="com.fc.test.mapper.auto.PatienbaseMapper">
-  <resultMap id="BaseResultMap" type="com.fc.test.model.auto.Patienbase">
+<mapper namespace="com.company.project.dao.PatienbaseMapper">
+  <resultMap id="BaseResultMap" type="com.company.project.model.Patienbase">
     <result column="id" jdbcType="BIGINT" property="id" />
     <result column="ybbm" jdbcType="VARCHAR" property="ybbm" />
     <result column="babm" jdbcType="VARCHAR" property="babm" />
@@ -62,7 +62,7 @@
       </foreach>
     </where>
   </sql>
-  <sql id="Update_By_Example_Where_Clause">
+  <!-- <sql id="Update_By_Example_Where_Clause">
     <where>
       <foreach collection="example.oredCriteria" item="criteria" separator="or">
         <if test="criteria.valid">
@@ -123,7 +123,7 @@
        	  	      	createtime,
        	  	    	  	updatetime
        	</sql>
-  <select id="selectByExample" parameterType="com.fc.test.model.auto.PatienbaseExample" resultMap="BaseResultMap">
+  <select id="selectByExample" parameterType="" resultMap="BaseResultMap">
     select
     <if test="distinct">
       distinct
@@ -148,7 +148,7 @@
     delete from patient_base
     where id = #{id,jdbcType=BIGINT}
   </delete>
-  <delete id="deleteByExample" parameterType="com.fc.test.model.auto.PatienbaseExample">
+  <delete id="deleteByExample" parameterType="">
     delete from patient_base
     <if test="_parameter != null">
       <include refid="Example_Where_Clause" />
@@ -222,7 +222,7 @@
        	    )
   </insert>
   
-  <insert id="insertSelective" parameterType="com.fc.test.model.auto.Patienbase">
+  <insert id="insertSelective" parameterType="">
     insert into patient_base
     <trim prefix="(" suffix=")" suffixOverrides=",">
           
@@ -470,7 +470,7 @@
         </trim>
   </insert>
   
-  <select id="countByExample" parameterType="com.fc.test.model.auto.PatienbaseExample" resultType="java.lang.Long">
+  <select id="countByExample" parameterType="" resultType="java.lang.Long">
     select count(*) from patient_base
     <if test="_parameter != null">
       <include refid="Example_Where_Clause" />
@@ -617,7 +617,7 @@
   </update>
   
   
-      <update id="updateByPrimaryKeySelective" parameterType="com.fc.test.model.auto.Patienbase">
+      <update id="updateByPrimaryKeySelective" parameterType="">
     update patient_base
     <set>
                           <if test="ybbm != null">
@@ -715,7 +715,7 @@
 
       	      	   	      	   	      	   	      	   	      	   	      	   	      	   	      	   	      	   	      	   	      	   	      	   	      	   	      	   	      	   	      	   	      	   	      	   	      	   	      	   	      	   	      	   	      	   	      	   	      	   	      	   	      	   	      	   	      	   	      	
 
-  <update id="updateByPrimaryKey" parameterType="com.fc.test.model.auto.Patienbase">
+  <update id="updateByPrimaryKey" parameterType="">
     update patient_base
     set 
              	        	    	 			ybbm = #{ybbm,jdbcType=VARCHAR},
@@ -750,7 +750,7 @@
 		     	        where 
             id = #{id,jdbcType=BIGINT}
                                                                                                                                                                                                                                                     
-  </update>
+  </update> -->
   
                                                                                                                                                           
 </mapper>

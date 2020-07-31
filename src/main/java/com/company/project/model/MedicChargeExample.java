@@ -9,7 +9,7 @@ import com.company.project.common.StringUtils;
 /**
  *  MedicChargeExample
  * @author SWJ
- * @date 2020-07-29 10:21:37
+ * @date 2020-07-30 16:46:21
  */
 public class MedicChargeExample {
 
@@ -751,6 +751,219 @@ public class MedicChargeExample {
             return (Criteria) this;
         }
         
+			
+        public Criteria andJyxmlbIsNull() {
+            addCriterion("jyxmlb is null");
+            return (Criteria) this;
+        }
+
+        public Criteria andJyxmlbIsNotNull() {
+            addCriterion("jyxmlb is not null");
+            return (Criteria) this;
+        }
+
+        public Criteria andJyxmlbEqualTo(String value) {
+            addCriterion("jyxmlb =", value, "jyxmlb");
+            return (Criteria) this;
+        }
+
+        public Criteria andJyxmlbNotEqualTo(String value) {
+            addCriterion("jyxmlb <>", value, "jyxmlb");
+            return (Criteria) this;
+        }
+
+        public Criteria andJyxmlbGreaterThan(String value) {
+            addCriterion("jyxmlb >", value, "jyxmlb");
+            return (Criteria) this;
+        }
+
+        public Criteria andJyxmlbGreaterThanOrEqualTo(String value) {
+            addCriterion("jyxmlb >=", value, "jyxmlb");
+            return (Criteria) this;
+        }
+
+        public Criteria andJyxmlbLessThan(String value) {
+            addCriterion("jyxmlb <", value, "jyxmlb");
+            return (Criteria) this;
+        }
+
+        public Criteria andJyxmlbLessThanOrEqualTo(String value) {
+            addCriterion("jyxmlb <=", value, "jyxmlb");
+            return (Criteria) this;
+        }
+
+        public Criteria andJyxmlbLike(String value) {
+            addCriterion("jyxmlb like", value, "jyxmlb");
+            return (Criteria) this;
+        }
+
+        public Criteria andJyxmlbNotLike(String value) {
+            addCriterion("jyxmlb not like", value, "jyxmlb");
+            return (Criteria) this;
+        }
+
+        public Criteria andJyxmlbIn(List<String> values) {
+            addCriterion("jyxmlb in", values, "jyxmlb");
+            return (Criteria) this;
+        }
+
+        public Criteria andJyxmlbNotIn(List<String> values) {
+            addCriterion("jyxmlb not in", values, "jyxmlb");
+            return (Criteria) this;
+        }
+
+        public Criteria andJyxmlbBetween(String value1, String value2) {
+            addCriterion("jyxmlb between", value1, value2, "jyxmlb");
+            return (Criteria) this;
+        }
+
+        public Criteria andJyxmlbNotBetween(String value1, String value2) {
+            addCriterion("jyxmlb not between", value1, value2, "jyxmlb");
+            return (Criteria) this;
+        }
+        
+			
+        public Criteria andJjzfIsNull() {
+            addCriterion("jjzf is null");
+            return (Criteria) this;
+        }
+
+        public Criteria andJjzfIsNotNull() {
+            addCriterion("jjzf is not null");
+            return (Criteria) this;
+        }
+
+        public Criteria andJjzfEqualTo(String value) {
+            addCriterion("jjzf =", value, "jjzf");
+            return (Criteria) this;
+        }
+
+        public Criteria andJjzfNotEqualTo(String value) {
+            addCriterion("jjzf <>", value, "jjzf");
+            return (Criteria) this;
+        }
+
+        public Criteria andJjzfGreaterThan(String value) {
+            addCriterion("jjzf >", value, "jjzf");
+            return (Criteria) this;
+        }
+
+        public Criteria andJjzfGreaterThanOrEqualTo(String value) {
+            addCriterion("jjzf >=", value, "jjzf");
+            return (Criteria) this;
+        }
+
+        public Criteria andJjzfLessThan(String value) {
+            addCriterion("jjzf <", value, "jjzf");
+            return (Criteria) this;
+        }
+
+        public Criteria andJjzfLessThanOrEqualTo(String value) {
+            addCriterion("jjzf <=", value, "jjzf");
+            return (Criteria) this;
+        }
+
+        public Criteria andJjzfLike(String value) {
+            addCriterion("jjzf like", value, "jjzf");
+            return (Criteria) this;
+        }
+
+        public Criteria andJjzfNotLike(String value) {
+            addCriterion("jjzf not like", value, "jjzf");
+            return (Criteria) this;
+        }
+
+        public Criteria andJjzfIn(List<String> values) {
+            addCriterion("jjzf in", values, "jjzf");
+            return (Criteria) this;
+        }
+
+        public Criteria andJjzfNotIn(List<String> values) {
+            addCriterion("jjzf not in", values, "jjzf");
+            return (Criteria) this;
+        }
+
+        public Criteria andJjzfBetween(String value1, String value2) {
+            addCriterion("jjzf between", value1, value2, "jjzf");
+            return (Criteria) this;
+        }
+
+        public Criteria andJjzfNotBetween(String value1, String value2) {
+            addCriterion("jjzf not between", value1, value2, "jjzf");
+            return (Criteria) this;
+        }
+        
+			
+        public Criteria andGrzfIsNull() {
+            addCriterion("grzf is null");
+            return (Criteria) this;
+        }
+
+        public Criteria andGrzfIsNotNull() {
+            addCriterion("grzf is not null");
+            return (Criteria) this;
+        }
+
+        public Criteria andGrzfEqualTo(String value) {
+            addCriterion("grzf =", value, "grzf");
+            return (Criteria) this;
+        }
+
+        public Criteria andGrzfNotEqualTo(String value) {
+            addCriterion("grzf <>", value, "grzf");
+            return (Criteria) this;
+        }
+
+        public Criteria andGrzfGreaterThan(String value) {
+            addCriterion("grzf >", value, "grzf");
+            return (Criteria) this;
+        }
+
+        public Criteria andGrzfGreaterThanOrEqualTo(String value) {
+            addCriterion("grzf >=", value, "grzf");
+            return (Criteria) this;
+        }
+
+        public Criteria andGrzfLessThan(String value) {
+            addCriterion("grzf <", value, "grzf");
+            return (Criteria) this;
+        }
+
+        public Criteria andGrzfLessThanOrEqualTo(String value) {
+            addCriterion("grzf <=", value, "grzf");
+            return (Criteria) this;
+        }
+
+        public Criteria andGrzfLike(String value) {
+            addCriterion("grzf like", value, "grzf");
+            return (Criteria) this;
+        }
+
+        public Criteria andGrzfNotLike(String value) {
+            addCriterion("grzf not like", value, "grzf");
+            return (Criteria) this;
+        }
+
+        public Criteria andGrzfIn(List<String> values) {
+            addCriterion("grzf in", values, "grzf");
+            return (Criteria) this;
+        }
+
+        public Criteria andGrzfNotIn(List<String> values) {
+            addCriterion("grzf not in", values, "grzf");
+            return (Criteria) this;
+        }
+
+        public Criteria andGrzfBetween(String value1, String value2) {
+            addCriterion("grzf between", value1, value2, "grzf");
+            return (Criteria) this;
+        }
+
+        public Criteria andGrzfNotBetween(String value1, String value2) {
+            addCriterion("grzf not between", value1, value2, "grzf");
+            return (Criteria) this;
+        }
+        
 		
 		 public Criteria andLikeQuery(MedicCharge record) {
 		 	List<String> list= new ArrayList<String>();
@@ -784,6 +997,15 @@ public class MedicChargeExample {
 						 if(record.getUpdatetime()!=null&&StringUtils.isNotEmpty(record.getUpdatetime().toString())) {
     			 list.add("ifnull(updatetime,'')");
     		 }
+						 if(record.getJyxmlb()!=null&&StringUtils.isNotEmpty(record.getJyxmlb().toString())) {
+    			 list.add("ifnull(jyxmlb,'')");
+    		 }
+						 if(record.getJjzf()!=null&&StringUtils.isNotEmpty(record.getJjzf().toString())) {
+    			 list.add("ifnull(jjzf,'')");
+    		 }
+						 if(record.getGrzf()!=null&&StringUtils.isNotEmpty(record.getGrzf().toString())) {
+    			 list.add("ifnull(grzf,'')");
+    		 }
 										 if(record.getId()!=null&&StringUtils.isNotEmpty(record.getId().toString())) {
         			list2.add("'%"+record.getId()+"%'");
         		 }
@@ -810,6 +1032,15 @@ public class MedicChargeExample {
         		 }
 							 if(record.getUpdatetime()!=null&&StringUtils.isNotEmpty(record.getUpdatetime().toString())) {
         			list2.add("'%"+record.getUpdatetime()+"%'");
+        		 }
+							 if(record.getJyxmlb()!=null&&StringUtils.isNotEmpty(record.getJyxmlb().toString())) {
+        			list2.add("'%"+record.getJyxmlb()+"%'");
+        		 }
+							 if(record.getJjzf()!=null&&StringUtils.isNotEmpty(record.getJjzf().toString())) {
+        			list2.add("'%"+record.getJjzf()+"%'");
+        		 }
+							 if(record.getGrzf()!=null&&StringUtils.isNotEmpty(record.getGrzf().toString())) {
+        			list2.add("'%"+record.getGrzf()+"%'");
         		 }
 			        	
         	buffer.append(" CONCAT(");

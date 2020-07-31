@@ -9,11 +9,11 @@ import org.apache.ibatis.annotations.Param;
 
 /**
  *  MedicChargeMapper
- * @author SWJ
- * @date 2020-07-29 10:21:37
+ * @authorSWJ
+ * @date 2020-07-30 16:46:21
  */
 public interface MedicChargeMapper {
-      	   	      	      	      	      	      	      	      	      	      
+      	   	      	      	      	      	      	      	      	      	      	      	      	      
     long countByExample(MedicChargeExample example);
 
     int deleteByExample(MedicChargeExample example);

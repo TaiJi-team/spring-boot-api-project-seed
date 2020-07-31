@@ -1,6 +1,9 @@
 package com.company.project.service;
 
 import java.util.List;
+
+import javax.annotation.Resource;
+
 import java.util.Arrays;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -24,7 +27,7 @@ import com.github.pagehelper.PageInfo;
  **/
 @Service
 public class CyxyqtService implements BaseService<Cyxyqt, CyxyqtExample>{
-	@Autowired
+	
 	private CyxyqtMapper cyxyqtMapper;
 	
       	   	      	      	      	      	      	      	

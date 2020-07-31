@@ -19,9 +19,8 @@ import com.github.pagehelper.PageInfo;
 /**
  *  PatienbaseService
  * @Title: PatienbaseService.java 
- * @Package com.fc.test.service 
  * @author SWJ
- * @date 2020-07-29 10:21:58  
+ * @date 2020-07-30 16:46:33  
  **/
 @Service
 public class PatienbaseService implements BaseService<Patienbase, PatienbaseExample>{

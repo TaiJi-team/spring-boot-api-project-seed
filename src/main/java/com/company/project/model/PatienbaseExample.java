@@ -9,7 +9,7 @@ import com.company.project.common.StringUtils;
 /**
  *  PatienbaseExample
  * @author SWJ
- * @date 2020-07-29 10:21:58
+ * @date 2020-07-30 16:46:33
  */
 public class PatienbaseExample {
 

@@ -19,16 +19,15 @@ import com.github.pagehelper.PageInfo;
 /**
  *  HospiDiagService
  * @Title: HospiDiagService.java 
- * @Package com.fc.test.service 
  * @author SWJ
- * @date 2020-07-29 10:21:50  
+ * @date 2020-07-30 16:46:16  
  **/
 @Service
 public class HospiDiagService implements BaseService<HospiDiag, HospiDiagExample>{
 	@Autowired
 	private HospiDiagMapper hospiDiagMapper;
 	
-      	   	      	      	      	      	      	      	      	      	      	      	      	      	
+      	   	      	      	      	      	      	      	      	      	      	      	      	      	      	      	      	      	      	      	      	      	      	      	      	      	      	      	      	      	      	      	      	      	      	
 	/**
 	 * 分页查询
 	 * @param pageNum

@@ -1,5 +1,6 @@
 package com.company.project.service;
 
+import java.util.List;
 import java.util.Map;
 
 import com.company.project.core.Result;
@@ -22,7 +23,7 @@ public interface DataCollectService {
      * @param info
      * @return
      */
-    PageResult<DataCollect> queryData(String info);
+    Map<Object,List> queryData(String info);
 
 
 }

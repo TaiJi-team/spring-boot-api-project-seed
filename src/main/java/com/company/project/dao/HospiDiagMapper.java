@@ -1,19 +1,17 @@
 package com.company.project.dao;
 
 import java.util.List;
-
 import com.company.project.model.HospiDiag;
 import com.company.project.model.HospiDiagExample;
-
 import org.apache.ibatis.annotations.Param;
 
 /**
  *  HospiDiagMapper
  * @author SWJ
- * @date 2020-07-29 10:21:50
+ * @date 2020-07-30 16:46:16
  */
 public interface HospiDiagMapper {
-      	   	      	      	      	      	      	      	      	      	      	      	      	      
+      	   	      	      	      	      	      	      	      	      	      	      	      	      	      	      	      	      	      	      	      	      	      	      	      	      	      	      	      	      	      	      	      	      	      
     long countByExample(HospiDiagExample example);
 
     int deleteByExample(HospiDiagExample example);

@@ -10,6 +10,7 @@ import com.company.project.service.DataCollectService;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
+import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 /**
@@ -17,7 +18,7 @@ import org.springframework.web.bind.annotation.RestController;
  * 
  * @author swj
  */
-
+@RequestMapping(value = "/test")
 @RestController
 public class DataCollectController {
     @Resource
@@ -42,8 +43,6 @@ public class DataCollectController {
      */
     @PostMapping("/dataselect")
     public PageResult<DataCollect> getList(@RequestBody String queryParam) throws Exception {
-
-        System.out.println(queryParam);
         return dataCollectService.queryData(queryParam);
     }
     

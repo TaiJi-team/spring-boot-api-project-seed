@@ -21,7 +21,7 @@ import com.github.pagehelper.PageInfo;
 
 @Controller
 @RequestMapping("/HospiDiagController")
-public class HospiDiagController{
+public class HospiDiagController {
 	
 	private String prefix = "gen/hospiDiag";
 	@Autowired
@@ -34,7 +34,7 @@ public class HospiDiagController{
     public String view(ModelMap model)
     {	
 		String str="";
-		AjaxResult.setTitle(model, new TitleVo("列表", str+"管理", true,"欢迎进入"+str+"页面", true, false));
+	    AjaxResult.setTitle(model, new TitleVo("列表", str+"管理", true,"欢迎进入"+str+"页面", true, false));
         return prefix + "/list";
     }
 	

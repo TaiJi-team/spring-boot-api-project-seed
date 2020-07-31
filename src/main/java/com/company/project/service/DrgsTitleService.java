@@ -81,11 +81,7 @@ public class DrgsTitleService implements BaseService<DrgsTitle, DrgsTitleExample
 	 * 添加
 	 */
 	@Override
-	public int insertSelective(DrgsTitle record) {
-				
-		record.setId(null);
-		
-				
+	public int insertSelective(DrgsTitle record) {		
 		return drgsTitleMapper.insertSelective(record);
 	}
 	

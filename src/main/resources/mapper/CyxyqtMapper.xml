@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
-<mapper namespace="com.fc.test.mapper.auto.CyxyqtMapper">
-  <resultMap id="BaseResultMap" type="com.fc.test.model.auto.Cyxyqt">
+<mapper namespace="com.company.project.dao.CyxyqtMapper">
+  <resultMap id="BaseResultMap" type="com.company.project.model.Cyxyqt">
     <result column="id" jdbcType="BIGINT" property="id" />
     <result column="ybbm" jdbcType="VARCHAR" property="ybbm" />
     <result column="babm" jdbcType="VARCHAR" property="babm" />
@@ -75,7 +75,7 @@
        	  	      	jbdm,
        	  	    	  	ryxqlb
        	</sql>
-  <select id="selectByExample" parameterType="com.fc.test.model.auto.CyxyqtExample" resultMap="BaseResultMap">
+  <!-- <select id="selectByExample" parameterType="" resultMap="BaseResultMap">
     select
     <if test="distinct">
       distinct
@@ -100,14 +100,14 @@
     delete from cyxyqt
     where id = #{id,jdbcType=BIGINT}
   </delete>
-  <delete id="deleteByExample" parameterType="com.fc.test.model.auto.CyxyqtExample">
+  <delete id="deleteByExample" parameterType="">
     delete from cyxyqt
     <if test="_parameter != null">
       <include refid="Example_Where_Clause" />
     </if>
   </delete>
   
-  <insert id="insert" parameterType="com.fc.test.model.auto.Cyxyqt">
+  <insert id="insert" parameterType="">
     insert into cyxyqt (
       	  	       id,
        	  	       ybbm,
@@ -126,7 +126,7 @@
        	    )
   </insert>
   
-  <insert id="insertSelective" parameterType="com.fc.test.model.auto.Cyxyqt">
+  <insert id="insertSelective" parameterType="">
     insert into cyxyqt
     <trim prefix="(" suffix=")" suffixOverrides=",">
           
@@ -182,7 +182,7 @@
         </trim>
   </insert>
   
-  <select id="countByExample" parameterType="com.fc.test.model.auto.CyxyqtExample" resultType="java.lang.Long">
+  <select id="countByExample" parameterType="" resultType="java.lang.Long">
     select count(*) from cyxyqt
     <if test="_parameter != null">
       <include refid="Example_Where_Clause" />
@@ -233,7 +233,7 @@
   </update>
   
   
-      <update id="updateByPrimaryKeySelective" parameterType="com.fc.test.model.auto.Cyxyqt">
+      <update id="updateByPrimaryKeySelective" parameterType="">
     update cyxyqt
     <set>
                           <if test="ybbm != null">
@@ -259,7 +259,7 @@
 
       	      	   	      	   	      	   	      	   	      	   	      	
 
-  <update id="updateByPrimaryKey" parameterType="com.fc.test.model.auto.Cyxyqt">
+  <update id="updateByPrimaryKey" parameterType="">
     update cyxyqt
     set 
              	        	    	 			ybbm = #{ybbm,jdbcType=VARCHAR},
@@ -270,7 +270,7 @@
 		     	        where 
             id = #{id,jdbcType=BIGINT}
                                                     
-  </update>
+  </update> -->
   
                                   
 </mapper>

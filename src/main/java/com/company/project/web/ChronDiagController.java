@@ -13,25 +13,27 @@ import com.company.project.common.AjaxResult;
 import com.company.project.common.TableSplitResult;
 import com.company.project.common.Tablepar;
 import com.company.project.common.TitleVo;
-import com.company.project.model.Patienbase;
-import com.company.project.service.PatienbaseService;
+import com.company.project.model.ChronDiag;
+import com.company.project.service.ChronDiagService;
 import com.github.pagehelper.PageInfo;
 
 
 
+
 @Controller
-@RequestMapping("/PatienbaseController")
-public class PatienbaseController {
+@RequestMapping("/ChronDiagController")
+public class ChronDiagController {
 	
-	private String prefix = "gen/patienbase";
+	private String prefix = "gen/chronDiag";
 	@Autowired
-	private PatienbaseService patienbaseService;
+	private ChronDiagService chronDiagService;
 	
 	/**
 	 * 分页跳转
 	 */
 
 	@GetMapping("/view")
+
     public String view(ModelMap model)
     {	
 		String str="";
@@ -43,11 +45,13 @@ public class PatienbaseController {
 	 * 分页查询
 	 */
 	//@Log(title = "集合查询", action = "111")
+
 	@PostMapping("/list")
+
 	@ResponseBody
-	public Object list(Tablepar tablepar,Patienbase record){
-		PageInfo<Patienbase> page=patienbaseService.list(tablepar,record) ; 
-		TableSplitResult<Patienbase> result=new TableSplitResult<Patienbase>(page.getPageNum(), page.getTotal(), page.getList()); 
+	public Object list(Tablepar tablepar,ChronDiag record){
+		PageInfo<ChronDiag> page=chronDiagService.list(tablepar,record) ; 
+		TableSplitResult<ChronDiag> result=new TableSplitResult<ChronDiag>(page.getPageNum(), page.getTotal(), page.getList()); 
 		return  result;
 	}
 	
@@ -66,8 +70,8 @@ public class PatienbaseController {
 	//@Log(title = "新增", action = "111")
 	@PostMapping("/add")
 	@ResponseBody
-	public AjaxResult add(Patienbase patienbase){
-		int b=patienbaseService.insertSelective(patienbase);
+	public AjaxResult add(ChronDiag chronDiag){
+		int b=chronDiagService.insertSelective(chronDiag);
 		if(b>0){
 			return AjaxResult.success();
 		}else{
@@ -84,7 +88,7 @@ public class PatienbaseController {
 	@PostMapping("/remove")
 	@ResponseBody
 	public AjaxResult remove(String ids){
-		int b=patienbaseService.deleteByPrimaryKey(ids);
+		int b=chronDiagService.deleteByPrimaryKey(ids);
 		if(b>0){
 			return AjaxResult.success();
 		}else{
@@ -99,8 +103,8 @@ public class PatienbaseController {
 	 */
 	@PostMapping("/checkNameUnique")
 	@ResponseBody
-	public int checkNameUnique(Patienbase patienbase){
-		int b=patienbaseService.checkNameUnique(patienbase);
+	public int checkNameUnique(ChronDiag chronDiag){
+		int b=chronDiagService.checkNameUnique(chronDiag);
 		if(b>0){
 			return 1;
 		}else{
@@ -118,7 +122,7 @@ public class PatienbaseController {
 	@GetMapping("/edit/{id}")
     public String edit(@PathVariable("id") String id, ModelMap mmap)
     {
-        mmap.put("Patienbase", patienbaseService.selectByPrimaryKey(id));
+        mmap.put("ChronDiag", chronDiagService.selectByPrimaryKey(id));
 
         return prefix + "/edit";
     }
@@ -129,9 +133,9 @@ public class PatienbaseController {
     //@Log(title = "修改", action = "111")
     @PostMapping("/edit")
     @ResponseBody
-    public AjaxResult editSave(Patienbase record)
+    public AjaxResult editSave(ChronDiag record)
     {
-        return AjaxResult.toAjax(patienbaseService.updateByPrimaryKeySelective(record));
+        return AjaxResult.toAjax(chronDiagService.updateByPrimaryKeySelective(record));
     }
 
     
@@ -143,8 +147,8 @@ public class PatienbaseController {
    	 * @return
    	 */
    	@PostMapping("/get/{id}")
-   	public Patienbase edit(@PathVariable("id") String id) {
-   		return patienbaseService.selectByPrimaryKey(id);
+   	public ChronDiag edit(@PathVariable("id") String id) {
+   		return chronDiagService.selectByPrimaryKey(id);
    	}
     
 

@@ -10,7 +10,7 @@ import org.apache.ibatis.annotations.Param;
 /**
  *  PatienbaseMapper
  * @author SWJ
- * @date 2020-07-29 10:21:58
+ * @date 2020-07-30 16:46:33
  */
 public interface PatienbaseMapper {
       	   	      	      	      	      	      	      	      	      	      	      	      	      	      	      	      	      	      	      	      	      	      	      	      	      	      	      	      	      	      	      

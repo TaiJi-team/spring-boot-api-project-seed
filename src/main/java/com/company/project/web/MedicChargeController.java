@@ -18,6 +18,7 @@ import com.company.project.service.MedicChargeService;
 import com.github.pagehelper.PageInfo;
 
 
+
 @Controller
 @RequestMapping("/MedicChargeController")
 public class MedicChargeController {
@@ -95,7 +96,6 @@ public class MedicChargeController {
 	 * @param tsysUser
 	 * @return
 	 */
-	@PostMapping("/checkNameUnique")
 	@ResponseBody
 	public int checkNameUnique(MedicCharge medicCharge){
 		int b=medicChargeService.checkNameUnique(medicCharge);
