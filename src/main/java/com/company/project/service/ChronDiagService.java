@@ -50,11 +50,7 @@ public class ChronDiagService implements BaseService<ChronDiag, ChronDiagExample
 	 * 添加
 	 */
 	@Override
-	public int insertSelective(ChronDiag record) {
-				
-		// record.set(null);
-		
-				
+	public int insertSelective(ChronDiag record) {		
 		return chronDiagMapper.insertSelective(record);
 	}
 	

@@ -39,7 +39,7 @@
       </foreach>
     </where>
   </sql>
-  <!-- <sql id="Update_By_Example_Where_Clause">
+  <sql id="Update_By_Example_Where_Clause">
     <where>
       <foreach collection="example.oredCriteria" item="criteria" separator="or">
         <if test="criteria.valid">
@@ -77,7 +77,7 @@
        	  	      	ssczmc,
        	  	    	  	ssczdm
        	</sql>
-  <select id="selectByExample" parameterType="" resultMap="BaseResultMap">
+  <select id="selectByExample" parameterType="com.company.project.model.ZdlbExample" resultMap="BaseResultMap">
     select
     <if test="distinct">
       distinct
@@ -91,7 +91,7 @@
       order by ${orderByClause}
     </if>
   </select>
-  <select id="selectByPrimaryKey" parameterType="java.lang.Long" resultMap="BaseResultMap">
+  <!-- <select id="selectByPrimaryKey" parameterType="java.lang.Long" resultMap="BaseResultMap">
     select 
     <include refid="Base_Column_List" />
     from zdlb
@@ -128,9 +128,9 @@
        	  	      	#{ssczmc,jdbcType=VARCHAR},
        	  	    	  #{ssczdm,jdbcType=VARCHAR}
        	    )
-  </insert>
+  </insert> -->
   
-  <insert id="insertSelective" parameterType="">
+  <insert id="insertSelective" parameterType="com.company.project.model.Zdlb">
     insert into zdlb
     <trim prefix="(" suffix=")" suffixOverrides=",">
           
@@ -194,7 +194,7 @@
         </trim>
   </insert>
   
-  <select id="countByExample" parameterType="" resultType="java.lang.Long">
+  <!-- <select id="countByExample" parameterType="" resultType="java.lang.Long">
     select count(*) from zdlb
     <if test="_parameter != null">
       <include refid="Example_Where_Clause" />

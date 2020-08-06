@@ -81,11 +81,7 @@ public class SjczqtService implements BaseService<Sjczqt, SjczqtExample>{
 	 * 添加
 	 */
 	@Override
-	public int insertSelective(Sjczqt record) {
-				
-		record.setId(null);
-		
-				
+	public int insertSelective(Sjczqt record) {		
 		return sjczqtMapper.insertSelective(record);
 	}
 	

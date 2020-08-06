@@ -81,11 +81,7 @@ public class ZzjhService implements BaseService<Zzjh, ZzjhExample>{
 	 * 添加
 	 */
 	@Override
-	public int insertSelective(Zzjh record) {
-				
-		record.setId(null);
-		
-				
+	public int insertSelective(Zzjh record) {		
 		return zzjhMapper.insertSelective(record);
 	}
 	

@@ -80,11 +80,7 @@ public class MedicChargeService implements BaseService<MedicCharge, MedicChargeE
 	 * 添加
 	 */
 	@Override
-	public int insertSelective(MedicCharge record) {
-				
-		record.setId(null);
-		
-				
+	public int insertSelective(MedicCharge record) {		
 		return medicChargeMapper.insertSelective(record);
 	}
 	

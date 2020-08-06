@@ -43,7 +43,7 @@
       </foreach>
     </where>
   </sql>
-  <!-- <sql id="Update_By_Example_Where_Clause">
+  <sql id="Update_By_Example_Where_Clause">
     <where>
       <foreach collection="example.oredCriteria" item="criteria" separator="or">
         <if test="criteria.valid">
@@ -85,7 +85,7 @@
        	  	      	mzysxm,
        	  	    	  	mzysdm
        	</sql>
-  <select id="selectByExample" parameterType="" resultMap="BaseResultMap">
+  <select id="selectByExample" parameterType="com.company.project.model.SjczqtExample" resultMap="BaseResultMap">
     select
     <if test="distinct">
       distinct
@@ -99,14 +99,14 @@
       order by ${orderByClause}
     </if>
   </select>
-  <select id="selectByPrimaryKey" parameterType="java.lang.Long" resultMap="BaseResultMap">
+  <!-- <select id="selectByPrimaryKey" parameterType="java.lang.Long" resultMap="BaseResultMap">
     select 
     <include refid="Base_Column_List" />
     from sjczqt
     where id = #{id,jdbcType=BIGINT}
-  </select>
+  </select> -->
 
-  <delete id="deleteByPrimaryKey" parameterType="java.lang.Long">
+  <!-- <delete id="deleteByPrimaryKey" parameterType="java.lang.Long">
     delete from sjczqt
     where id = #{id,jdbcType=BIGINT}
   </delete>
@@ -144,9 +144,9 @@
        	  	      	#{mzysxm,jdbcType=VARCHAR},
        	  	    	  #{mzysdm,jdbcType=VARCHAR}
        	    )
-  </insert>
+  </insert> -->
   
-  <insert id="insertSelective" parameterType="">
+  <insert id="insertSelective" parameterType="com.company.project.model.Sjczqt">
     insert into sjczqt
     <trim prefix="(" suffix=")" suffixOverrides=",">
           
@@ -242,7 +242,7 @@
         </trim>
   </insert>
   
-  <select id="countByExample" parameterType="" resultType="java.lang.Long">
+  <!-- <select id="countByExample" parameterType="" resultType="java.lang.Long">
     select count(*) from sjczqt
     <if test="_parameter != null">
       <include refid="Example_Where_Clause" />

@@ -1,5 +1,9 @@
 package com.company.project.web;
 
+
+
+import java.util.Map;
+
 import javax.annotation.Resource;
 
 import com.company.project.core.Result;
@@ -42,8 +46,8 @@ public class DataCollectController {
      * @throws Exception
      */
     @PostMapping("/dataselect")
-    public PageResult<DataCollect> getList(@RequestBody String queryParam) throws Exception {
-        return dataCollectService.queryData(queryParam);
+    public Map   getList(@RequestBody String queryParam) throws Exception {
+         System.out.println(dataCollectService.queryData(queryParam));
+         return dataCollectService.queryData(queryParam);
     }
-    
 }

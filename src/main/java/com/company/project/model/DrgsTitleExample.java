@@ -1,13 +1,18 @@
 package com.company.project.model;
 
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
+import java.util.regex.Matcher;
+import java.util.regex.Pattern;
 
 import com.company.project.common.StringUtils;
 
 /**
- *  DrgsTitleExample
+ * DrgsTitleExample
+ * 
  * @author SWJ
  * @date 2020-07-29 10:22:10
  */
@@ -25,6 +30,7 @@ public class DrgsTitleExample {
 
     public void setOrderByClause(String orderByClause) {
         this.orderByClause = orderByClause;
+        System.out.println(this.orderByClause);
     }
 
     public String getOrderByClause() {
@@ -112,7 +118,7 @@ public class DrgsTitleExample {
             }
             criteria.add(new Criterion(condition, value1, value2));
         }
-				
+
         public Criteria andIdIsNull() {
             addCriterion("id is null");
             return (Criteria) this;
@@ -182,8 +188,7 @@ public class DrgsTitleExample {
             addCriterion("id not between", value1, value2, "id");
             return (Criteria) this;
         }
-        
-			
+
         public Criteria andYbbmIsNull() {
             addCriterion("ybbm is null");
             return (Criteria) this;
@@ -253,8 +258,7 @@ public class DrgsTitleExample {
             addCriterion("ybbm not between", value1, value2, "ybbm");
             return (Criteria) this;
         }
-        
-			
+
         public Criteria andBabmIsNull() {
             addCriterion("babm is null");
             return (Criteria) this;
@@ -324,8 +328,7 @@ public class DrgsTitleExample {
             addCriterion("babm not between", value1, value2, "babm");
             return (Criteria) this;
         }
-        
-			
+
         public Criteria andYljgmcIsNull() {
             addCriterion("yljgmc is null");
             return (Criteria) this;
@@ -395,8 +398,7 @@ public class DrgsTitleExample {
             addCriterion("yljgmc not between", value1, value2, "yljgmc");
             return (Criteria) this;
         }
-        
-			
+
         public Criteria andYljgdmIsNull() {
             addCriterion("yljgdm is null");
             return (Criteria) this;
@@ -466,8 +468,7 @@ public class DrgsTitleExample {
             addCriterion("yljgdm not between", value1, value2, "yljgdm");
             return (Criteria) this;
         }
-        
-			
+
         public Criteria andYbjsdjIsNull() {
             addCriterion("ybjsdj is null");
             return (Criteria) this;
@@ -537,8 +538,7 @@ public class DrgsTitleExample {
             addCriterion("ybjsdj not between", value1, value2, "ybjsdj");
             return (Criteria) this;
         }
-        
-			
+
         public Criteria andSbsjIsNull() {
             addCriterion("sbsj is null");
             return (Criteria) this;
@@ -608,8 +608,7 @@ public class DrgsTitleExample {
             addCriterion("sbsj not between", value1, value2, "sbsj");
             return (Criteria) this;
         }
-        
-			
+
         public Criteria andTbbmIsNull() {
             addCriterion("tbbm is null");
             return (Criteria) this;
@@ -679,8 +678,7 @@ public class DrgsTitleExample {
             addCriterion("tbbm not between", value1, value2, "tbbm");
             return (Criteria) this;
         }
-        
-			
+
         public Criteria andTbrIsNull() {
             addCriterion("tbr is null");
             return (Criteria) this;
@@ -750,8 +748,7 @@ public class DrgsTitleExample {
             addCriterion("tbr not between", value1, value2, "tbr");
             return (Criteria) this;
         }
-        
-			
+
         public Criteria andCreatetimeIsNull() {
             addCriterion("createtime is null");
             return (Criteria) this;
@@ -821,8 +818,7 @@ public class DrgsTitleExample {
             addCriterion("createtime not between", value1, value2, "createtime");
             return (Criteria) this;
         }
-        
-			
+
         public Criteria andUpdatetimeIsNull() {
             addCriterion("updatetime is null");
             return (Criteria) this;
@@ -892,92 +888,102 @@ public class DrgsTitleExample {
             addCriterion("updatetime not between", value1, value2, "updatetime");
             return (Criteria) this;
         }
-        
-		
-		 public Criteria andLikeQuery(DrgsTitle record) {
-		 	List<String> list= new ArrayList<String>();
-		 	List<String> list2= new ArrayList<String>();
-        	StringBuffer buffer=new StringBuffer();
-        	
-        				 if(record.getId()!=null&&StringUtils.isNotEmpty(record.getId().toString())) {
-    			 list.add("ifnull(id,'')");
-    		 }
-						 if(record.getYbbm()!=null&&StringUtils.isNotEmpty(record.getYbbm().toString())) {
-    			 list.add("ifnull(ybbm,'')");
-    		 }
-						 if(record.getBabm()!=null&&StringUtils.isNotEmpty(record.getBabm().toString())) {
-    			 list.add("ifnull(babm,'')");
-    		 }
-						 if(record.getYljgmc()!=null&&StringUtils.isNotEmpty(record.getYljgmc().toString())) {
-    			 list.add("ifnull(yljgmc,'')");
-    		 }
-						 if(record.getYljgdm()!=null&&StringUtils.isNotEmpty(record.getYljgdm().toString())) {
-    			 list.add("ifnull(yljgdm,'')");
-    		 }
-						 if(record.getYbjsdj()!=null&&StringUtils.isNotEmpty(record.getYbjsdj().toString())) {
-    			 list.add("ifnull(ybjsdj,'')");
-    		 }
-						 if(record.getSbsj()!=null&&StringUtils.isNotEmpty(record.getSbsj().toString())) {
-    			 list.add("ifnull(sbsj,'')");
-    		 }
-						 if(record.getTbbm()!=null&&StringUtils.isNotEmpty(record.getTbbm().toString())) {
-    			 list.add("ifnull(tbbm,'')");
-    		 }
-						 if(record.getTbr()!=null&&StringUtils.isNotEmpty(record.getTbr().toString())) {
-    			 list.add("ifnull(tbr,'')");
-    		 }
-						 if(record.getCreatetime()!=null&&StringUtils.isNotEmpty(record.getCreatetime().toString())) {
-    			 list.add("ifnull(createtime,'')");
-    		 }
-						 if(record.getUpdatetime()!=null&&StringUtils.isNotEmpty(record.getUpdatetime().toString())) {
-    			 list.add("ifnull(updatetime,'')");
-    		 }
-										 if(record.getId()!=null&&StringUtils.isNotEmpty(record.getId().toString())) {
-        			list2.add("'%"+record.getId()+"%'");
-        		 }
-							 if(record.getYbbm()!=null&&StringUtils.isNotEmpty(record.getYbbm().toString())) {
-        			list2.add("'%"+record.getYbbm()+"%'");
-        		 }
-							 if(record.getBabm()!=null&&StringUtils.isNotEmpty(record.getBabm().toString())) {
-        			list2.add("'%"+record.getBabm()+"%'");
-        		 }
-							 if(record.getYljgmc()!=null&&StringUtils.isNotEmpty(record.getYljgmc().toString())) {
-        			list2.add("'%"+record.getYljgmc()+"%'");
-        		 }
-							 if(record.getYljgdm()!=null&&StringUtils.isNotEmpty(record.getYljgdm().toString())) {
-        			list2.add("'%"+record.getYljgdm()+"%'");
-        		 }
-							 if(record.getYbjsdj()!=null&&StringUtils.isNotEmpty(record.getYbjsdj().toString())) {
-        			list2.add("'%"+record.getYbjsdj()+"%'");
-        		 }
-							 if(record.getSbsj()!=null&&StringUtils.isNotEmpty(record.getSbsj().toString())) {
-        			list2.add("'%"+record.getSbsj()+"%'");
-        		 }
-							 if(record.getTbbm()!=null&&StringUtils.isNotEmpty(record.getTbbm().toString())) {
+
+        public Criteria andLikeQuery(DrgsTitle record) {
+            List<String> list = new ArrayList<String>();
+            List<String> list2 = new ArrayList<String>();
+            List<String> list3 = new ArrayList<String>();
+            StringBuffer buffer = new StringBuffer();
+            StringBuffer sb=new StringBuffer();
+            if (record.getId() != null && StringUtils.isNotEmpty(record.getId().toString())) {
+                list.add("ifnull(id,'')");
+            }
+            if (record.getYbbm() != null && StringUtils.isNotEmpty(record.getYbbm().toString())) {
+                list.add("ifnull(ybbm,'')");
+            }
+            if (record.getBabm() != null && StringUtils.isNotEmpty(record.getBabm().toString())) {
+                list.add("ifnull(babm,'')");
+            }
+            if (record.getYljgmc() != null && StringUtils.isNotEmpty(record.getYljgmc().toString())) {
+                list.add("ifnull(yljgmc,'')");
+            }
+            if (record.getYljgdm() != null && StringUtils.isNotEmpty(record.getYljgdm().toString())) {
+                list.add("ifnull(yljgdm,'')");
+            }
+            if (record.getYbjsdj() != null && StringUtils.isNotEmpty(record.getYbjsdj().toString())) {
+                list.add("ifnull(ybjsdj,'')");
+            }
+            // if (record.getSbsj() != null && StringUtils.isNotEmpty(record.getSbsj().toString())) {
+            //     list.add("ifnull(sbsj,'')");
+            // }
+            if (record.getTbbm() != null && StringUtils.isNotEmpty(record.getTbbm().toString())) {
+                list.add("ifnull(tbbm,'')");
+            }
+            if (record.getTbr() != null && StringUtils.isNotEmpty(record.getTbr().toString())) {
+                list.add("ifnull(tbr,'')");
+            }
+
+            if (record.getSbsj() != null && StringUtils.isNotEmpty(record.getSbsj().toString())) {
+                list.add("ifnull(sbsj,'')");
+            }
+            if (record.getCreatetime() != null && StringUtils.isNotEmpty(record.getCreatetime().toString())) {
+                list.add("ifnull(createtime,'')");
+            }
+            if (record.getUpdatetime() != null && StringUtils.isNotEmpty(record.getUpdatetime().toString())) {
+                list.add("ifnull(updatetime,'')");
+            }
+           
+            if (record.getId() != null && StringUtils.isNotEmpty(record.getId().toString())) {
+                list2.add("'%" + record.getId() + "%'");
+            }
+            if (record.getYbbm() != null && StringUtils.isNotEmpty(record.getYbbm().toString())) {
+                list2.add("'%" + record.getYbbm() + "%'");
+            }
+            if (record.getBabm() != null && StringUtils.isNotEmpty(record.getBabm().toString())) {
+                list2.add("'%" + record.getBabm() + "%'");
+            }
+            if (record.getYljgmc() != null && StringUtils.isNotEmpty(record.getYljgmc().toString())) {
+                list2.add("'%" + record.getYljgmc() + "%'");
+            }
+            if (record.getYljgdm() != null && StringUtils.isNotEmpty(record.getYljgdm().toString())) {
+                list2.add("'%" + record.getYljgdm() + "%'");
+            }
+            if (record.getYbjsdj() != null && StringUtils.isNotEmpty(record.getYbjsdj().toString())) {
+                list2.add("'%" + record.getYbjsdj() + "%'");
+            }
+          
+			 if(record.getTbbm()!=null&&StringUtils.isNotEmpty(record.getTbbm().toString())) {
         			list2.add("'%"+record.getTbbm()+"%'");
-        		 }
-							 if(record.getTbr()!=null&&StringUtils.isNotEmpty(record.getTbr().toString())) {
+                 }
+            
+			if(record.getTbr()!=null&&StringUtils.isNotEmpty(record.getTbr().toString())) {
         			list2.add("'%"+record.getTbr()+"%'");
+                 }
+            if (record.getSbsj() != null && StringUtils.isNotEmpty(record.getSbsj().toString())) {
+                         sb.append("and DATE_FORMAT(sbsj,'%Y-%m-%d') ='"+record.getSbsj()+"'");          
+                        //list2.add("DATE_FORMAT(sbsj,'%Y-%m-%d') BETWEEN '"+record.getSbsj()+ "' and '" +record.getSbsj()+"'");
+                }        
+			if(record.getCreatetime()!=null&&StringUtils.isNotEmpty(record.getCreatetime().toString())) {
+                    sb.append(" and DATE_FORMAT(createtime,'%Y-%m-%d') ='"+record.getCreatetime()+"'");
         		 }
-							 if(record.getCreatetime()!=null&&StringUtils.isNotEmpty(record.getCreatetime().toString())) {
-        			list2.add("'%"+record.getCreatetime()+"%'");
-        		 }
-							 if(record.getUpdatetime()!=null&&StringUtils.isNotEmpty(record.getUpdatetime().toString())) {
-        			list2.add("'%"+record.getUpdatetime()+"%'");
+			if(record.getUpdatetime()!=null&&StringUtils.isNotEmpty(record.getUpdatetime().toString())) {
+                    sb.append("and DATE_FORMAT(updatetime,'%Y-%m-%d') ='"+record.getUpdatetime()+"'");
         		 }
 			        	
         	buffer.append(" CONCAT(");
-	        buffer.append(StringUtils.join("",list));
+	        buffer.append(StringUtils.join(' ',list));
         	buffer.append(")");
         	buffer.append("like CONCAT(");
-        	
-        	
-        	buffer.append(StringUtils.join("",list2));
-        	
-        	buffer.append(")");
-        	if(!" CONCAT()like CONCAT()".equals(buffer.toString())) {
-        		addCriterion(buffer.toString());
-        	}
+        	buffer.append(StringUtils.join(' ',list2));
+            buffer.append(")");
+            buffer.append(StringUtils.join(' ',sb));
+            String str=buffer.toString();
+            str=str.replace('[', ' ');
+            str=str.replace(']', ' ');
+            System.out.println(str);
+        	if(!" CONCAT()like CONCAT()".equals(str)) {
+        		addCriterion(str);
+            }
         	return (Criteria) this;
         }
         

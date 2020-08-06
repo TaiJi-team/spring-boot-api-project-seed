@@ -80,11 +80,7 @@ public class PatienbaseService implements BaseService<Patienbase, PatienbaseExam
 	 * 添加
 	 */
 	@Override
-	public int insertSelective(Patienbase record) {
-				
-		record.setId(null);
-		
-				
+	public int insertSelective(Patienbase record) {		
 		return patienbaseMapper.insertSelective(record);
 	}
 	

@@ -80,11 +80,7 @@ public class HospiDiagService implements BaseService<HospiDiag, HospiDiagExample
 	 * 添加
 	 */
 	@Override
-	public int insertSelective(HospiDiag record) {
-				
-		record.setId(null);
-		
-				
+	public int insertSelective(HospiDiag record) {	
 		return hospiDiagMapper.insertSelective(record);
 	}
 	

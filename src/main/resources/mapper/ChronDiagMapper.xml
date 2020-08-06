@@ -1,13 +1,13 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
-<mapper namespace="com.company.project.dao.ZzjhMapper">
-  <resultMap id="BaseResultMap" type="com.company.project.model.Zzjh">
-    <result column="id" jdbcType="BIGINT" property="id" />
+<mapper namespace="com.company.project.dao.ChronDiagMapper">
+  <resultMap id="BaseResultMap" type="com.company.project.model.ChronDiag">
     <result column="ybbm" jdbcType="VARCHAR" property="ybbm" />
     <result column="babm" jdbcType="VARCHAR" property="babm" />
-    <result column="bflx" jdbcType="INTEGER" property="bflx" />
-    <result column="jrsj" jdbcType="TIMESTAMP" property="jrsj" />
-    <result column="clsj" jdbcType="TIMESTAMP" property="clsj" />
+    <result column="zdkb" jdbcType="VARCHAR" property="zdkb" />
+    <result column="jzrq" jdbcType="VARCHAR" property="jzrq" />
+    <result column="createtime" jdbcType="TIMESTAMP" property="createtime" />
+    <result column="updateime" jdbcType="TIMESTAMP" property="updateime" />
   </resultMap>
   <sql id="Example_Where_Clause">
     <where>
@@ -68,20 +68,20 @@
     </where>
   </sql>
 <sql id="Base_Column_List">
-	  	  	      	id,
-       	  	      	ybbm,
+	  	  	      	  ybbm,
        	  	      	babm,
-       	  	      	bflx,
-       	  	      	jrsj,
-       	  	    	  	clsj
+       	  	      	zdkb,
+       	  	      	jzrq,
+       	  	      	createtime,
+       	  	    	  updateime
        	</sql>
-  <select id="selectByExample" parameterType="com.company.project.model.ZzjhExample" resultMap="BaseResultMap">
+  <select id="selectByExample" parameterType="com.company.project.model.ChronDiagExample" resultMap="BaseResultMap">
     select
     <if test="distinct">
       distinct
     </if>
     <include refid="Base_Column_List" />
-    from zzjh
+    from chron_diag
     <if test="_parameter != null">
       <include refid="Example_Where_Clause" />
     </if>
@@ -89,126 +89,104 @@
       order by ${orderByClause}
     </if>
   </select>
-  <!-- <select id="selectByPrimaryKey" parameterType="java.lang.Long" resultMap="BaseResultMap">
-    select 
-    <include refid="Base_Column_List" />
-    from zzjh
-    where id = #{id,jdbcType=BIGINT}
-  </select>
-
-  <delete id="deleteByPrimaryKey" parameterType="java.lang.Long">
-    delete from zzjh
-    where id = #{id,jdbcType=BIGINT}
-  </delete>
-  <delete id="deleteByExample" parameterType="">
-    delete from zzjh
+  <!-- <delete id="deleteByExample" parameterType="com.fc.test.model.auto.ChronDiagExample">
+    delete from chron_diag
     <if test="_parameter != null">
       <include refid="Example_Where_Clause" />
     </if>
   </delete>
   
-  <insert id="insert" parameterType="">
-    insert into zzjh (
-      	  	       id,
-       	  	       ybbm,
+  <insert id="insert" parameterType="com.fc.test.model.auto.ChronDiag">
+    insert into chron_diag (
+      	  	       ybbm,
        	  	       babm,
-       	  	       bflx,
-       	  	       jrsj,
-       	  	    	  clsj
+       	  	       zdkb,
+       	  	       jzrq,
+       	  	       createtime,
+       	  	    	  updateime
        	    )
     values (
-	  	  	      	  #{id,jdbcType=BIGINT},
-       	  	      	#{ybbm,jdbcType=VARCHAR},
+	  	  	      	#{ybbm,jdbcType=VARCHAR},
        	  	      	#{babm,jdbcType=VARCHAR},
-       	  	      	#{bflx,jdbcType=INTEGER},
-       	  	      	#{jrsj,jdbcType=TIMESTAMP},
-       	  	    	  #{clsj,jdbcType=TIMESTAMP}
+       	  	      	#{zdkb,jdbcType=VARCHAR},
+       	  	      	#{jzrq,jdbcType=VARCHAR},
+       	  	      	#{createtime,jdbcType=TIMESTAMP},
+       	  	    	  #{updateime,jdbcType=TIMESTAMP}
        	    )
   </insert> -->
   
-  <insert id="insertSelective" parameterType="com.company.project.model.Zzjh">
-    insert into zzjh
+  <insert id="insertSelective" parameterType="com.company.project.model.ChronDiag">
+    insert into chron_diag
     <trim prefix="(" suffix=")" suffixOverrides=",">
           
-      <if test="id != null">
-        id,
-      </if>
-      
-         
       <if test="ybbm != null">
         ybbm,
-      </if>
-      
-         
+      </if> 
       <if test="babm != null">
         babm,
       </if>
-      
-         
-      <if test="bflx != null">
-        bflx,
+      <if test="zdkb != null">
+        zdkb,
+      </if>  
+      <if test="jzrq != null">
+        jzrq,
       </if>
-      
-         
-      <if test="jrsj != null">
-        jrsj,
+      <if test="createtime != null">
+        createtime,
       </if>
-      
-         
-      <if test="clsj != null">
-        clsj,
+      <if test="updateime != null">
+        updateime,
       </if>
-      
-         </trim>
+    </trim>
     <trim prefix="values (" suffix=")" suffixOverrides=",">
-          <if test="id != null">
-        #{id,jdbcType=BIGINT},
-      </if>
           <if test="ybbm != null">
         #{ybbm,jdbcType=VARCHAR},
       </if>
           <if test="babm != null">
         #{babm,jdbcType=VARCHAR},
       </if>
-          <if test="bflx != null">
-        #{bflx,jdbcType=INTEGER},
+          <if test="zdkb != null">
+        #{zdkb,jdbcType=VARCHAR},
       </if>
-          <if test="jrsj != null">
-        #{jrsj,jdbcType=TIMESTAMP},
+          <if test="jzrq != null">
+        #{jzrq,jdbcType=VARCHAR},
       </if>
-          <if test="clsj != null">
-        #{clsj,jdbcType=TIMESTAMP},
+          <if test="createtime != null">
+        #{createtime,jdbcType=TIMESTAMP},
+      </if>
+          <if test="updateime != null">
+        #{updateime,jdbcType=TIMESTAMP},
       </if>
         </trim>
   </insert>
   
-  <!-- <select id="countByExample" parameterType="" resultType="java.lang.Long">
-    select count(*) from zzjh
+  <!-- <select id="countByExample" parameterType="com.fc.test.model.auto.ChronDiagExample" resultType="java.lang.Long">
+    select count(*) from chron_diag
     <if test="_parameter != null">
       <include refid="Example_Where_Clause" />
     </if>
   </select>
   
   <update id="updateByExampleSelective" parameterType="map">
-    update zzjh
+    update chron_diag
     <set>
-          <if test="record.id != null">
-        id = #{record.id,jdbcType=BIGINT},
-      </if>
           <if test="record.ybbm != null">
         ybbm = #{record.ybbm,jdbcType=VARCHAR},
       </if>
           <if test="record.babm != null">
         babm = #{record.babm,jdbcType=VARCHAR},
       </if>
-          <if test="record.bflx != null">
-        bflx = #{record.bflx,jdbcType=INTEGER},
+          <if test="record.zdkb != null">
+        zdkb = #{record.zdkb,jdbcType=VARCHAR},
       </if>
-          <if test="record.jrsj != null">
-        jrsj = #{record.jrsj,jdbcType=TIMESTAMP},
+          <if test="record.jzrq != null">
+        jzrq = #{record.jzrq,jdbcType=VARCHAR},
       </if>
-          <if test="record.clsj != null">
-        clsj = #{record.clsj,jdbcType=TIMESTAMP},
+          <if test="record.createtime != null">
+        createtime = #{record.createtime,jdbcType=TIMESTAMP},
+      </if>
+          <if test="record.updateime != null">
+        updateime = #{record.updateime,jdbcType=TIMESTAMP},
       </if>
          
     </set>
@@ -219,58 +197,19 @@
   
   
   <update id="updateByExample" parameterType="map">
-    update zzjh
+    update chron_diag
     set
-            	     	 id = #{record.id,jdbcType=BIGINT},
-    	         	     	 ybbm = #{record.ybbm,jdbcType=VARCHAR},
+            	     	 ybbm = #{record.ybbm,jdbcType=VARCHAR},
     	         	     	 babm = #{record.babm,jdbcType=VARCHAR},
-    	         	     	 bflx = #{record.bflx,jdbcType=INTEGER},
-    	         	     	 jrsj = #{record.jrsj,jdbcType=TIMESTAMP},
-    	         	     	 clsj = #{record.clsj,jdbcType=TIMESTAMP}
+    	         	     	 zdkb = #{record.zdkb,jdbcType=VARCHAR},
+    	         	     	 jzrq = #{record.jzrq,jdbcType=VARCHAR},
+    	         	     	 createtime = #{record.createtime,jdbcType=TIMESTAMP},
+    	         	     	 updateime = #{record.updateime,jdbcType=TIMESTAMP}
     	         <if test="_parameter != null">
       <include refid="Update_By_Example_Where_Clause" />
     </if>
-  </update>
-  
-  
-      <update id="updateByPrimaryKeySelective" parameterType="">
-    update zzjh
-    <set>
-                          <if test="ybbm != null">
-        ybbm = #{ybbm,jdbcType=VARCHAR},
-      </if>
-                      <if test="babm != null">
-        babm = #{babm,jdbcType=VARCHAR},
-      </if>
-                      <if test="bflx != null">
-        bflx = #{bflx,jdbcType=INTEGER},
-      </if>
-                      <if test="jrsj != null">
-        jrsj = #{jrsj,jdbcType=TIMESTAMP},
-      </if>
-                      <if test="clsj != null">
-        clsj = #{clsj,jdbcType=TIMESTAMP},
-      </if>
-              </set>
-    where 
-            id = #{id,jdbcType=BIGINT}
-                                                  
-  </update>
-
-      	      	   	      	   	      	   	      	   	      	   	      	
-
-  <update id="updateByPrimaryKey" parameterType="">
-    update zzjh
-    set 
-             	        	    	 			ybbm = #{ybbm,jdbcType=VARCHAR},
-		     	        	    	 			babm = #{babm,jdbcType=VARCHAR},
-		     	        	    	 			bflx = #{bflx,jdbcType=INTEGER},
-		     	        	    	 			jrsj = #{jrsj,jdbcType=TIMESTAMP},
-		     	        	    	 			clsj = #{clsj,jdbcType=TIMESTAMP}
-		     	        where 
-            id = #{id,jdbcType=BIGINT}
-                                                    
   </update> -->
   
-                                  
+  
+                                   
 </mapper>

@@ -44,7 +44,7 @@
       </foreach>
     </where>
   </sql>
-  <!-- <sql id="Update_By_Example_Where_Clause">
+  <sql id="Update_By_Example_Where_Clause">
     <where>
       <foreach collection="example.oredCriteria" item="criteria" separator="or">
         <if test="criteria.valid">
@@ -74,7 +74,7 @@
     </where>
   </sql>
 <sql id="Base_Column_List">
-	  	  	      	id,
+	  	  	      	  id,
        	  	      	ybbm,
        	  	      	babm,
        	  	      	zyyllx,
@@ -85,9 +85,9 @@
        	  	      	zkkb,
        	  	      	cysj,
        	  	      	cykb,
-       	  	    	  	sjzyts
+       	  	    	  sjzyts
        	</sql>
-  <select id="selectByExample" parameterType="" resultMap="BaseResultMap">
+  <select id="selectByExample" parameterType="com.company.project.model.HospiDiagExample" resultMap="BaseResultMap">
     select
     <if test="distinct">
       distinct
@@ -101,7 +101,7 @@
       order by ${orderByClause}
     </if>
   </select>
-  <select id="selectByPrimaryKey" parameterType="java.lang.Long" resultMap="BaseResultMap">
+  <!-- <select id="selectByPrimaryKey" parameterType="java.lang.Long" resultMap="BaseResultMap">
     select 
     <include refid="Base_Column_List" />
     from hospi_diag
@@ -148,9 +148,9 @@
        	  	      	#{cykb,jdbcType=INTEGER},
        	  	    	  #{sjzyts,jdbcType=INTEGER}
        	    )
-  </insert>
+  </insert> -->
   
-  <insert id="insertSelective" parameterType="">
+  <insert id="insertSelective" parameterType="com.company.project.model.HospiDiag">
     insert into hospi_diag
     <trim prefix="(" suffix=")" suffixOverrides=",">
           
@@ -254,7 +254,7 @@
         </trim>
   </insert>
   
-  <select id="countByExample" parameterType="" resultType="java.lang.Long">
+  <!-- <select id="countByExample" parameterType="" resultType="java.lang.Long">
     select count(*) from hospi_diag
     <if test="_parameter != null">
       <include refid="Example_Where_Clause" />

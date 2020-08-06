@@ -290,7 +290,6 @@ public class StringUtils extends org.apache.commons.lang3.StringUtils
 
             sb.append(Character.toLowerCase(c));
         }
-
         return sb.toString();
     }
 

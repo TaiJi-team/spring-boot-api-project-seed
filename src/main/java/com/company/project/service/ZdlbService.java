@@ -81,11 +81,7 @@ public class ZdlbService implements BaseService<Zdlb, ZdlbExample>{
 	 * 添加
 	 */
 	@Override
-	public int insertSelective(Zdlb record) {
-				
-		record.setId(null);
-		
-				
+	public int insertSelective(Zdlb record) {	
 		return zdlbMapper.insertSelective(record);
 	}
 	

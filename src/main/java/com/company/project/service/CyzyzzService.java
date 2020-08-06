@@ -79,11 +79,7 @@ public class CyzyzzService implements BaseService<Cyzyzz, CyzyzzExample>{
 	 * 添加
 	 */
 	@Override
-	public int insertSelective(Cyzyzz record) {
-				
-		record.setId(null);
-		
-				
+	public int insertSelective(Cyzyzz record) {		
 		return cyzyzzMapper.insertSelective(record);
 	}
 	

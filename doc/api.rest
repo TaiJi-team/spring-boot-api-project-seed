@@ -4,7 +4,7 @@
 @contentType = application/json
 @createdAt = {{$datetime iso8601}}
 
-POST http://{{baseUrl}}//test//dataCollect HTTP/1.1
+POST http://{{baseUrl}}//test//dataselect HTTP/1.1
 Content-Type: {{contentType}}
 
 {
@@ -15,11 +15,11 @@ Content-Type: {{contentType}}
         "yljgdm":"123123345345", //医疗机构代码
         "ybjsdj":"1", //医保结算等级
         "ybjsdjDesc":null,
-        "sbsj":"20200515",  //申报时间
+        "sbsj":"2020-05-15",  //申报时间
         "tbbm":"海淀医院",   
         "tbr":"李四",
-        "createtime":"2020-05-15 14:58:08",
-        "updatetime":"2020-05-25 02:08:09"
+        "createtime":"2020-05-15 ",
+        "updatetime":"2020-05-25 "
     },
     "patientBase":{
         "ybbm":"10001",

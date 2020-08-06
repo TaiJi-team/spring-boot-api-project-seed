@@ -68,14 +68,14 @@
     </where>
   </sql>
 <sql id="Base_Column_List">
-	  	  	      	id,
+	  	  	      	  id,
        	  	      	ybbm,
        	  	      	babm,
        	  	      	jbmc,
        	  	      	jbdm,
-       	  	    	  	ryxqlb
-       	</sql>
-  <!-- <select id="selectByExample" parameterType="" resultMap="BaseResultMap">
+       	  	    	  ryxqlb
+</sql>
+  <select id="selectByExample" parameterType="com.company.project.model.CyzyzzExample" resultMap="BaseResultMap">
     select
     <if test="distinct">
       distinct
@@ -89,7 +89,7 @@
       order by ${orderByClause}
     </if>
   </select>
-  <select id="selectByPrimaryKey" parameterType="java.lang.Long" resultMap="BaseResultMap">
+  <!-- <select id="selectByPrimaryKey" parameterType="java.lang.Long" resultMap="BaseResultMap">
     select 
     <include refid="Base_Column_List" />
     from cyzyzz
@@ -124,27 +124,24 @@
        	  	      	#{jbdm,jdbcType=VARCHAR},
        	  	    	  #{ryxqlb,jdbcType=VARCHAR}
        	    )
-  </insert>
+  </insert> -->
   
-  <insert id="insertSelective" parameterType="">
+  <insert id="insertSelective" parameterType="com.company.project.model.Cyzyzz">
     insert into cyzyzz
     <trim prefix="(" suffix=")" suffixOverrides=",">
           
       <if test="id != null">
         id,
       </if>
-      
-         
+       
       <if test="ybbm != null">
         ybbm,
       </if>
-      
          
       <if test="babm != null">
         babm,
       </if>
-      
-         
+       
       <if test="jbmc != null">
         jbmc,
       </if>
@@ -154,7 +151,6 @@
         jbdm,
       </if>
       
-         
       <if test="ryxqlb != null">
         ryxqlb,
       </if>
@@ -182,7 +178,7 @@
         </trim>
   </insert>
   
-  <select id="countByExample" parameterType="" resultType="java.lang.Long">
+  <!-- <select id="countByExample" parameterType="" resultType="java.lang.Long">
     select count(*) from cyzyzz
     <if test="_parameter != null">
       <include refid="Example_Where_Clause" />

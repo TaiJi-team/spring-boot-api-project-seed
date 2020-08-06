@@ -83,11 +83,7 @@ public class CyxyqtService implements BaseService<Cyxyqt, CyxyqtExample>{
 	 * 添加
 	 */
 	@Override
-	public int insertSelective(Cyxyqt record) {
-				
-		record.setId(null);
-		
-				
+	public int insertSelective(Cyxyqt record) {		
 		return cyxyqtMapper.insertSelective(record);
 	}
 	

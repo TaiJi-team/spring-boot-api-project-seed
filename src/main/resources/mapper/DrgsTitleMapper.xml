@@ -73,7 +73,7 @@
     </where>
   </sql>
 <sql id="Base_Column_List">
-	  	  	      	id,
+	  	  	      	  id,
        	  	      	ybbm,
        	  	      	babm,
        	  	      	yljgmc,
@@ -83,14 +83,14 @@
        	  	      	tbbm,
        	  	      	tbr,
        	  	      	createtime,
-       	  	    	  	updatetime
+       	  	    	  updatetime
        	</sql>
-  <!-- <select id="selectByExample" parameterType="" resultMap="BaseResultMap">
+  <select id="selectByExample" parameterType="com.company.project.model.DrgsTitleExample" resultMap="BaseResultMap">
     select
     <if test="distinct">
       distinct
     </if>
-    <include refid="Base_Column_List" />
+    <include refid="Base_Column_List"/>
     from drgs_title
     <if test="_parameter != null">
       <include refid="Example_Where_Clause" />
@@ -99,7 +99,7 @@
       order by ${orderByClause}
     </if>
   </select>
-  <select id="selectByPrimaryKey" parameterType="java.lang.Long" resultMap="BaseResultMap">
+  <!-- <select id="selectByPrimaryKey" parameterType="java.lang.Long" resultMap="BaseResultMap">
     select 
     <include refid="Base_Column_List" />
     from drgs_title
@@ -116,7 +116,7 @@
       <include refid="Example_Where_Clause" />
     </if>
   </delete>
-  
+
   <insert id="insert" parameterType="">
     insert into drgs_title (
       	  	       id,
@@ -129,10 +129,10 @@
        	  	       tbbm,
        	  	       tbr,
        	  	       createtime,
-       	  	    	  updatetime
+       	  	    	 updatetime
        	    )
     values (
-	  	  	      	#{id,jdbcType=BIGINT},
+	  	  	      	  #{id,jdbcType=BIGINT},
        	  	      	#{ybbm,jdbcType=VARCHAR},
        	  	      	#{babm,jdbcType=VARCHAR},
        	  	      	#{yljgmc,jdbcType=VARCHAR},
@@ -144,27 +144,24 @@
        	  	      	#{createtime,jdbcType=TIMESTAMP},
        	  	    	  #{updatetime,jdbcType=TIMESTAMP}
        	    )
-  </insert>
+  </insert> -->
   
-  <insert id="insertSelective" parameterType="">
+  <insert id="insertSelective" parameterType="com.company.project.model.DrgsTitle">
     insert into drgs_title
     <trim prefix="(" suffix=")" suffixOverrides=",">
-          
+
       <if test="id != null">
         id,
       </if>
-      
-         
+    
       <if test="ybbm != null">
         ybbm,
       </if>
-      
-         
+  
       <if test="babm != null">
         babm,
       </if>
       
-         
       <if test="yljgmc != null">
         yljgmc,
       </if>
@@ -173,8 +170,7 @@
       <if test="yljgdm != null">
         yljgdm,
       </if>
-      
-         
+       
       <if test="ybjsdj != null">
         ybjsdj,
       </if>
@@ -189,12 +185,10 @@
         tbbm,
       </if>
       
-         
       <if test="tbr != null">
         tbr,
       </if>
-      
-         
+       
       <if test="createtime != null">
         createtime,
       </if>
@@ -203,7 +197,6 @@
       <if test="updatetime != null">
         updatetime,
       </if>
-      
          </trim>
     <trim prefix="values (" suffix=")" suffixOverrides=",">
           <if test="id != null">
@@ -242,7 +235,7 @@
         </trim>
   </insert>
   
-  <select id="countByExample" parameterType="" resultType="java.lang.Long">
+  <!-- <select id="countByExample" parameterType="" resultType="java.lang.Long">
     select count(*) from drgs_title
     <if test="_parameter != null">
       <include refid="Example_Where_Clause" />
@@ -357,7 +350,7 @@
   <update id="updateByPrimaryKey" parameterType="">
     update drgs_title
     set 
-             	        	    	 			ybbm = #{ybbm,jdbcType=VARCHAR},
+             	        	    	 	ybbm = #{ybbm,jdbcType=VARCHAR},
 		     	        	    	 			babm = #{babm,jdbcType=VARCHAR},
 		     	        	    	 			yljgmc = #{yljgmc,jdbcType=VARCHAR},
 		     	        	    	 			yljgdm = #{yljgdm,jdbcType=VARCHAR},
@@ -370,7 +363,7 @@
 		     	        where 
             id = #{id,jdbcType=BIGINT}
                                                                                             
-  </update> -->
+  </update>  -->
   
                                                            
 </mapper>

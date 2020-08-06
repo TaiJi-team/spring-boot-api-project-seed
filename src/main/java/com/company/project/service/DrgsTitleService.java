@@ -40,14 +40,16 @@ public class DrgsTitleService implements BaseService<DrgsTitle, DrgsTitleExample
 	        testExample.createCriteria().andLikeQuery(record);
 	        testExample.setOrderByClause("id ASC");
 			if(StringUtils.isNotEmpty(tablepar.getOrderByColumn())) {
-	        	testExample.setOrderByClause(StringUtils.toUnderScoreCase(tablepar.getOrderByColumn()) +" "+tablepar.getIsAsc());
+				testExample.setOrderByClause(StringUtils.toUnderScoreCase(tablepar.getOrderByColumn()) +' '+tablepar.getIsAsc());
+				System.out.println(StringUtils.toUnderScoreCase(tablepar.getOrderByColumn()) +' '+tablepar.getIsAsc());
 	        }
-	        PageHelper.startPage(tablepar.getPageNum(), tablepar.getPageSize());
+			PageHelper.startPage(tablepar.getPageNum(), tablepar.getPageSize());
+			System.out.println(testExample);
+			System.out.println(drgsTitleMapper.selectByExample(testExample));
 	        List<DrgsTitle> list= drgsTitleMapper.selectByExample(testExample);
 	        PageInfo<DrgsTitle> pageInfo = new PageInfo<DrgsTitle>(list);
 	        return  pageInfo;
 	 }
-
 	@Override
 	public int deleteByPrimaryKey(String ids) {
 				
@@ -55,19 +57,14 @@ public class DrgsTitleService implements BaseService<DrgsTitle, DrgsTitleExample
 			List<Long> stringB = Arrays.asList(integers);
 			DrgsTitleExample example=new DrgsTitleExample();
 			example.createCriteria().andIdIn(stringB);
-			return drgsTitleMapper.deleteByExample(example);
-		
-				
+			return drgsTitleMapper.deleteByExample(example);	
 	}
 	
 	
 	@Override
-	public DrgsTitle selectByPrimaryKey(String id) {
-				
+	public DrgsTitle selectByPrimaryKey(String id) {	
 			Long id1 = Long.valueOf(id);
 			return drgsTitleMapper.selectByPrimaryKey(id1);
-			
-				
 	}
 
 	

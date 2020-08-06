@@ -44,9 +44,8 @@ public class DrgsTitle implements Serializable {
 	private Integer ybjsdj;
 		
 	/** 申报时间 **/
-	@JsonFormat(pattern = "yyyy-MM-dd HH:mm:ss",timezone="GMT+8")
-
-	private Date sbsj;
+	//@JsonFormat(pattern = "yyyy-MM-dd HH:mm:ss",timezone="GMT+8")
+	private String sbsj;
 		
 	/** 填报部门 **/
 
@@ -57,14 +56,12 @@ public class DrgsTitle implements Serializable {
 	private String tbr;
 		
 	/** 创建时间 **/
-	@JsonFormat(pattern = "yyyy-MM-dd HH:mm:ss",timezone="GMT+8")
-
-	private Date createtime;
+	//@JsonFormat(pattern = "yyyy-MM-dd HH:mm:ss",timezone="GMT+8")
+	private String createtime;
 		
 	/** 更新时间 **/
-	@JsonFormat(pattern = "yyyy-MM-dd HH:mm:ss",timezone="GMT+8")
-
-	private Date updatetime;
+	//@JsonFormat(pattern = "yyyy-MM-dd HH:mm:ss",timezone="GMT+8")
+	private String updatetime;
 		
 		
 	public Long getId() {
@@ -121,11 +118,11 @@ public class DrgsTitle implements Serializable {
     }
 	 
 			
-	public Date getSbsj() {
+	public String getSbsj() {
         return sbsj;
     }
 
-    public void setSbsj(Date sbsj) {
+    public void setSbsj(String sbsj) {
         this.sbsj = sbsj;
     }
 	 
@@ -148,20 +145,20 @@ public class DrgsTitle implements Serializable {
     }
 	 
 			
-	public Date getCreatetime() {
+	public String getCreatetime() {
         return createtime;
     }
 
-    public void setCreatetime(Date createtime) {
+    public void setCreatetime(String createtime) {
         this.createtime = createtime;
     }
 	 
 			
-	public Date getUpdatetime() {
+	public String getUpdatetime() {
         return updatetime;
     }
 
-    public void setUpdatetime(Date updatetime) {
+    public void setUpdatetime(String updatetime) {
         this.updatetime = updatetime;
     }
 	 
@@ -171,7 +168,7 @@ public class DrgsTitle implements Serializable {
     }
     
 																																																									
-	public DrgsTitle(Long id,String ybbm,String babm,String yljgmc,String yljgdm,Integer ybjsdj,Date sbsj,String tbbm,String tbr,Date createtime,Date updatetime) {
+	public DrgsTitle(Long id,String ybbm,String babm,String yljgmc,String yljgdm,Integer ybjsdj,String sbsj,String tbbm,String tbr,String createtime,String updatetime) {
 	
 		this.id = id;
 		this.ybbm = ybbm;

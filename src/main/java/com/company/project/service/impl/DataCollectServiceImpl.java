@@ -38,7 +38,7 @@ import org.apache.commons.lang3.StringUtils;
 import org.springframework.data.mongodb.core.MongoTemplate;
 import org.springframework.data.mongodb.core.query.Criteria;
 import org.springframework.data.mongodb.core.query.Query;
-import org.springframework.stereotype.Service;
+import org.springframework.stereotype.Service; 
 
 
 /**
@@ -138,6 +138,7 @@ public class DataCollectServiceImpl implements DataCollectService {
         Map map=new HashMap<Object,List>();
         if(json.containsKey("drgsTitle")&& json.get("drgsTitle")!=null){
             DrgsTitle drgsTitle =json.toJavaObject((JSONObject)JSON.toJSON(json.get("drgsTitle")), DrgsTitle.class);
+            System.out.println(drgsTitleService.list(Tablepar,drgsTitle));
             map.put("drgsTitle", drgsTitleService.list(Tablepar,drgsTitle));
         }
         if(json.containsKey("patientBase")&& json.get("patientBase")!=null){
